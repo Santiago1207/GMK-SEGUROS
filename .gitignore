@@ -1,0 +1,41 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos temporales
+.log
+.tmp
+.temp
+.swp
+.swo
+
+# Carpetas de dependencias (si usas npm después)
+node_modules
+
+# Archivos de entorno
+.env
+.env.local
+.env..local
+
+# Archivos de editores
+.vscode
+.idea
+
+# Archivos de build
+dist
+build
+
+# Archivos comprimidos
+.zip
+.tar
+.gz
+.rar
+
+# Claves y seguridad
+.pem
+.key
+.crt
+
+# SSH (por seguridad)
+ssh

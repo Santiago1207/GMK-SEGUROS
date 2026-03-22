@@ -1,0 +1,359 @@
+/* =============================================
+   FASE 3.1: VARIABLES, RESET Y BASE TIPOGRÁFICA
+   GMK SEGUROS - 2026
+   Mobile First - BEM - WCAG
+   ============================================= */
+
+/* ---------------------------------------------
+   1. VARIABLES CSS (GLOBALES)
+   --------------------------------------------- */
+:root {
+    /* Colores primarios - Branding GMK */
+    --color-primary: #4A148C;          /* Morado corporativo (títulos, acentos principales) */
+    --color-primary-light: #7B1FA2;     /* Morado medio (hovers, gradientes) */
+    --color-primary-lighter: #B39DDB;   /* Lavanda (fondos suaves, detalles) */
+    --color-accent: #FFB300;            /* Dorado/ámbar (CTAs, highlights) */
+    
+    /* Escala de neutros */
+    --color-text-dark: #263238;         /* Texto principal (casi negro) */
+    --color-text-medium: #546E7A;       /* Texto secundario (gris oscuro) */
+    --color-text-light: #78909C;        /* Texto de apoyo (gris) */
+    --color-background-light: #F5F5F7;  /* Fondos claros (testimonios, ventajas) */
+    --color-background-main: #FAFBFC;   /* Fondo general (casi blanco) */
+    --color-white: #FFFFFF;              /* Blanco puro */
+    --color-black: #000000;              /* Negro puro (uso limitado) */
+    
+    /* Colores funcionales */
+    --color-success: #2E7D32;            /* Verde para éxito (no definido, pero útil) */
+    --color-error: #C62828;               /* Rojo para errores (no definido, pero útil) */
+    --color-whatsapp: #25D366;            /* Color oficial de WhatsApp */
+    
+    /* Tipografía */
+    --font-family-titles: 'Manrope', sans-serif;
+    --font-family-body: 'Inter', sans-serif;
+    --font-family-numbers: 'Space Grotesk', sans-serif;
+    
+    /* Pesos de fuente */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    /* Tamaños de fuente base (Mobile First) */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-base: 1rem;     /* 16px */
+    --font-size-md: 1.125rem;   /* 18px */
+    --font-size-lg: 1.25rem;    /* 20px */
+    --font-size-xl: 1.5rem;     /* 24px */
+    --font-size-2xl: 2rem;      /* 32px */
+    --font-size-3xl: 2.5rem;    /* 40px */
+    --font-size-4xl: 3rem;      /* 48px */
+    
+    /* Espaciados (Mobile First) */
+    --spacing-xs: 0.25rem;  /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+    --spacing-3xl: 4rem;     /* 64px */
+    
+    /* Bordes y sombras */
+    --border-radius-sm: 0.25rem;  /* 4px */
+    --border-radius-md: 0.5rem;   /* 8px */
+    --border-radius-lg: 1rem;     /* 16px */
+    --border-radius-full: 9999px;
+    
+    --box-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    
+    /* Transiciones */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+    
+    /* Contenedor máximo */
+    --container-max-width: 1280px;
+    --container-padding: var(--spacing-md);
+    
+    /* Z-index (escalado simple) */
+    --z-index-dropdown: 100;
+    --z-index-sticky: 200;
+    --z-index-modal: 300;
+    --z-index-popover: 400;
+    --z-index-tooltip: 500;
+    --z-index-toast: 600;
+    --z-index-header: 50; /* Un valor intermedio para el header */
+    
+    /* Breakpoints (usados en media queries) */
+    --breakpoint-mobile: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+    --breakpoint-large: 1280px;
+}
+
+/* ---------------------------------------------
+   2. RESET Y ESTILOS BASE
+   --------------------------------------------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; /* 1rem = 16px */
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%; /* Evita que iOS escale texto en landscape */
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
+    color: var(--color-text-dark);
+    background-color: var(--color-background-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Elementos de medios responsivos */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Reset de tipografía para formularios (heredan la fuente del body) */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Eliminar estilos por defecto de botones */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Ajustes para listas */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Enlaces */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Eliminar estilos por defecto de citas */
+blockquote,
+q {
+    quotes: none;
+}
+
+/* Mejorar consistencia de tablas */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Ocultar elementos de forma accesible */
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+}
+
+/* Skip link para accesibilidad */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    z-index: var(--z-index-toast);
+    transition: top var(--transition-fast);
+    font-weight: var(--font-weight-medium);
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* ---------------------------------------------
+   3. TIPOGRAFÍA BASE
+   --------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-titles);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    color: var(--color-primary); /* Títulos en morado corporativo por defecto */
+    margin-bottom: var(--spacing-md);
+}
+
+h1 {
+    font-size: var(--font-size-3xl); /* 40px mobile */
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: var(--font-size-2xl); /* 32px mobile */
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: var(--font-size-xl); /* 24px mobile */
+}
+
+h4 {
+    font-size: var(--font-size-lg); /* 20px mobile */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+}
+
+h5 {
+    font-size: var(--font-size-md); /* 18px mobile */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+}
+
+h6 {
+    font-size: var(--font-size-base); /* 16px mobile */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-medium);
+}
+
+/* Números con Space Grotesk */
+.stat-item__number,
+.historia__numero,
+.step__number,
+[class*="__numero"] {
+    font-family: var(--font-family-numbers);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.1;
+}
+
+/* ---------------------------------------------
+   4. UTILIDADES Y CLASES DE APOYO
+   --------------------------------------------- */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Utilidades de texto */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-white { color: var(--color-white); }
+.text-dark { color: var(--color-text-dark); }
+.text-medium { color: var(--color-text-medium); }
+.text-light { color: var(--color-text-light); }
+
+/* Utilidades de fondo */
+.bg-primary { background-color: var(--color-primary); }
+.bg-primary-light { background-color: var(--color-primary-light); }
+.bg-primary-lighter { background-color: var(--color-primary-lighter); }
+.bg-light { background-color: var(--color-background-light); }
+.bg-white { background-color: var(--color-white); }
+
+/* Utilidades de márgenes y paddings (solo las más comunes) */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-1 { margin-top: var(--spacing-md); }
+.mb-1 { margin-bottom: var(--spacing-md); }
+.mt-2 { margin-top: var(--spacing-xl); }
+.mb-2 { margin-bottom: var(--spacing-xl); }
+.mt-3 { margin-top: var(--spacing-2xl); }
+.mb-3 { margin-bottom: var(--spacing-2xl); }
+
+/* Utilidades de display */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+/* Utilidades para flexbox rápidas */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Aspect ratio utilitario */
+.aspect-ratio-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-1-1 {
+    aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+/* Focus visible para accesibilidad (WCAG) */
+:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Para navegadores que no soportan :focus-visible */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ---------------------------------------------
+   FIN DE FASE 3.1
+   --------------------------------------------- */

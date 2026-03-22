@@ -1,0 +1,1694 @@
+/* ============================================================================
+   PASO 1: HEADER - ESTRUCTURA BASE
+   ============================================================================ */
+
+/**
+ * Reset y estilos base del header
+ * Mobile-first: altura compacta, fondo blanco, sombra sutil
+ */
+.header {
+    background-color: var(--color-white, #FFFFFF);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Contenedor principal para limitar ancho y centrar contenido */
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Para móviles, padding estándar */
+@media (min-width: 640px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* ============================================================================
+   PASO 2: HEADER__TOP - BARRA SUPERIOR
+   ============================================================================ */
+
+/**
+ * Barra superior con teléfono y horario
+ * Mobile-first: fondo oscuro, texto claro, compacto
+ */
+.header__top {
+    background-color: var(--color-primary, #4A148C);
+    color: white;
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.5;
+    padding: 0.375rem 0; /* 6px */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header__top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* 12px */
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .header__contact {
+        justify-content: flex-start;
+        gap: 1.5rem;
+    }
+}
+
+.header__phone {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.header__phone:hover {
+    color: var(--color-accent, #FFB300);
+}
+
+.header__schedule {
+    opacity: 0.9;
+    font-size: 0.75rem; /* 12px */
+}
+
+@media (min-width: 480px) {
+    .header__schedule {
+        font-size: 0.8125rem; /* 13px */
+    }
+}
+
+/* ============================================================================
+   PASO 3: HEADER__MAIN - ESTRUCTURA PRINCIPAL
+   ============================================================================ */
+
+/**
+ * Fila principal del header que contiene logo, navegación y WhatsApp
+ * Mobile-first: altura compacta, distribución con flexbox
+ */
+.header__main {
+    background-color: var(--color-white, #FFFFFF);
+    padding: 0.5rem 0; /* 8px */
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem; /* 16px */
+}
+
+/**
+ * Ajustes para desktop: más padding vertical
+ */
+@media (min-width: 1024px) {
+    .header__main {
+        padding: 0.75rem 0; /* 12px */
+    }
+}
+
+/**
+ * Ajuste fino para pantallas muy pequeñas
+ */
+@media (max-width: 360px) {
+    .header__container {
+        gap: 0.5rem; /* 8px */
+    }
+}
+
+/* ============================================================================
+   PASO 4: LOGO
+   ============================================================================ */
+
+/**
+ * Logo de GMK SEGUROS
+ * Mobile-first: tamaño compacto, escalable en desktop
+ */
+.logo {
+    display: inline-block;
+    line-height: 0; /* Elimina espacio extra por línea base */
+    transition: opacity 0.2s ease;
+    flex-shrink: 0; /* Evita que el logo se comprima */
+}
+
+.logo:hover {
+    opacity: 0.9;
+}
+
+.logo__img {
+    display: block;
+    width: auto;
+    height: 40px; /* Altura fija para mobile */
+    max-width: 180px; /* Límite del ancho original del SVG */
+}
+
+/**
+ * Ajustes para tablet: logo un poco más grande
+ */
+@media (min-width: 768px) {
+    .logo__img {
+        height: 45px;
+    }
+}
+
+/**
+ * Ajustes para desktop: logo tamaño completo
+ */
+@media (min-width: 1024px) {
+    .logo__img {
+        height: 50px; /* Altura final como en el HTML (width="180" height="50") */
+    }
+}
+
+/**
+ * Soporte para pantallas de alta densidad
+ * El SVG se ve nítido por naturaleza, pero aseguramos que no pierda calidad
+ */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo__img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ============================================================================
+   PASO 5: WHATSAPP ICON
+   ============================================================================ */
+
+/**
+ * Ícono de WhatsApp flotante en el header
+ * Mobile-first: visible siempre, tamaño táctil
+ */
+.header__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #25D366; /* Color oficial WhatsApp */
+    color: white;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+    flex-shrink: 0; /* Evita que se comprima */
+    font-size: 1.5rem; /* Tamaño del emoji/icono */
+    order: 3; /* En móvil, asegura que esté después del menú hamburguesa */
+}
+
+.header__whatsapp:hover {
+    background-color: #20B859; /* Versión más oscura para hover */
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
+
+.header__whatsapp:active {
+    transform: scale(0.98);
+}
+
+/**
+ * Ajuste para el emoji (si se usa el span con aria-hidden)
+ * Si se usara un ícono SVG, se sobrescribiría
+ */
+.header__whatsapp span {
+    line-height: 1;
+}
+
+/**
+ * En desktop el WhatsApp puede ser un poco más sutil
+ * pero mantenemos el tamaño táctil por accesibilidad
+ */
+@media (min-width: 1024px) {
+    .header__whatsapp {
+        width: 2.25rem; /* 36px - ligeramente más pequeño */
+        height: 2.25rem;
+        font-size: 1.35rem;
+        margin-left: 0.5rem;
+    }
+}
+
+/**
+ * Ajuste para pantallas muy pequeñas
+ */
+@media (max-width: 360px) {
+    .header__whatsapp {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.35rem;
+    }
+}
+
+/* ============================================================================
+   PASO 6: BOTÓN HAMBURGUESA
+   ============================================================================ */
+
+/**
+ * Botón de menú hamburguesa
+ * Mobile-first: visible solo en móvil/tablet, tamaño táctil grande
+ */
+.nav__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 2px solid var(--color-primary, #4A148C);
+    border-radius: 8px;
+    width: 2.75rem; /* 44px - mínimo táctil recomendado WCAG */
+    height: 2.75rem; /* 44px */
+    padding: 0;
+    cursor: pointer;
+    order: 2; /* Posición entre logo y WhatsApp */
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.nav__toggle:hover {
+    background-color: rgba(74, 20, 140, 0.05);
+}
+
+.nav__toggle:active {
+    transform: scale(0.95);
+}
+
+.nav__toggle:focus-visible {
+    outline: 2px solid var(--color-accent, #FFB300);
+    outline-offset: 2px;
+}
+
+/**
+ * El ícono hamburguesa (las 3 líneas)
+ */
+.nav__hamburger {
+    display: block;
+    width: 1.5rem; /* 24px */
+    height: 2px;
+    background-color: var(--color-primary, #4A148C);
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.nav__hamburger::before,
+.nav__hamburger::after {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--color-primary, #4A148C);
+    position: absolute;
+    left: 0;
+    transition: transform 0.2s ease, top 0.2s ease;
+}
+
+.nav__hamburger::before {
+    top: -6px;
+}
+
+.nav__hamburger::after {
+    top: 6px;
+}
+
+/* Cambio de color en hover */
+.nav__toggle:hover .nav__hamburger,
+.nav__toggle:hover .nav__hamburger::before,
+.nav__toggle:hover .nav__hamburger::after {
+    background-color: var(--color-secondary, #7B1FA2);
+}
+
+/**
+ * Ocultar el botón hamburguesa en desktop
+ */
+@media (min-width: 1024px) {
+    .nav__toggle {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   PASO 7: PANEL DEL MENÚ MÓVIL
+   ============================================================================ */
+
+/**
+ * Menú de navegación para móvil
+ * Inicialmente oculto (aria-expanded="false"), se muestra al hacer clic
+ */
+.nav__menu {
+    position: absolute;
+    top: 100%; /* Justo debajo del header */
+    left: 0;
+    right: 0;
+    background-color: white;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    list-style: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+    /* Estado inicial: oculto */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: visibility 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Mejora de scroll para menús largos */
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+/**
+ * Clase para mostrar el menú (se controlará con JavaScript)
+ * Cuando el botón tenga aria-expanded="true", se activa
+ */
+.nav__toggle[aria-expanded="true"] + .nav__menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/**
+ * Overlay oscuro detrás del menú (opcional pero mejora UX)
+ * Se puede activar con JS si se desea
+ */
+.nav__menu::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none; /* Permite hacer clic a través del overlay */
+}
+
+.nav__toggle[aria-expanded="true"] + .nav__menu::before {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* Activa clics en el overlay para cerrar */
+}
+
+/**
+ * En desktop el menú cambia completamente
+ */
+@media (min-width: 1024px) {
+    .nav__menu {
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        box-shadow: none;
+        padding: 0;
+        max-height: none;
+        overflow-y: visible;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .nav__menu::before {
+        display: none; /* Sin overlay en desktop */
+    }
+}
+
+/**
+ * Ajuste para que el menú no tape el header__top
+ */
+.header {
+    position: sticky;
+    top: 0;
+}
+
+@media (min-width: 1024px) {
+    .header {
+        position: relative; /* O sticky si se desea header fijo */
+    }
+}
+
+/* ============================================================================
+   PASO 8: LINKS DEL MENÚ MOBILE
+   ============================================================================ */
+
+/**
+ * Estilos base para los items del menú
+ * Mobile-first: bloque vertical con espaciado generoso
+ */
+.nav__item {
+    margin-bottom: 0.75rem; /* 12px */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 0.75rem;
+}
+
+.nav__item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.nav__link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-text, #333333);
+    text-decoration: none;
+    font-family: var(--font-family-base, 'Inter', sans-serif);
+    font-weight: 500;
+    font-size: 1.125rem; /* 18px - más grande para móvil */
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* Hover y active states */
+.nav__link:hover {
+    background-color: rgba(74, 20, 140, 0.05);
+    color: var(--color-primary, #4A148C);
+    padding-left: 1.5rem; /* Efecto de desplazamiento sutil */
+}
+
+.nav__link:active {
+    background-color: rgba(74, 20, 140, 0.1);
+    transform: scale(0.98);
+}
+
+/* Estado activo (página actual) */
+.nav__link--active {
+    color: var(--color-primary, #4A148C);
+    font-weight: 600;
+    background-color: rgba(74, 20, 140, 0.03);
+    border-left: 4px solid var(--color-primary, #4A148C);
+    border-radius: 8px 0 0 8px;
+}
+
+/* Focus visible para accesibilidad */
+.nav__link:focus-visible {
+    outline: 2px solid var(--color-accent, #FFB300);
+    outline-offset: 2px;
+}
+
+/**
+ * Ajustes para desktop (se sobrescriben en pasos posteriores)
+ */
+@media (min-width: 1024px) {
+    .nav__item {
+        margin-bottom: 0;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .nav__link {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .nav__link:hover {
+        padding-left: 1rem; /* Reset del efecto mobile */
+    }
+    
+    .nav__link--active {
+        border-left: none;
+        border-bottom: 3px solid var(--color-primary, #4A148C);
+        border-radius: 0;
+        background-color: transparent;
+    }
+}
+
+/* ============================================================================
+   PASO 9: DROPDOWN MOBILE - SUBMENÚ DE SEGUROS
+   ============================================================================ */
+
+/**
+ * Item que contiene dropdown
+ * Posición relativa para el submenú
+ */
+.nav__item--dropdown {
+    position: relative;
+}
+
+/**
+ * Indicador visual de que tiene submenú (flecha)
+ * Se agrega con pseudo-elemento al link
+ */
+.nav__item--dropdown > .nav__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 2.5rem;
+}
+
+.nav__item--dropdown > .nav__link::after {
+    content: '';
+    width: 0.8rem;
+    height: 0.8rem;
+    border-right: 2px solid var(--color-primary, #4A148C);
+    border-bottom: 2px solid var(--color-primary, #4A148C);
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    margin-top: -0.5rem;
+}
+
+/* Cuando el dropdown está abierto (se controlará con JS) */
+.nav__item--dropdown.open > .nav__link::after {
+    transform: rotate(-135deg);
+    margin-top: -0.2rem;
+}
+
+/**
+ * Submenú en mobile
+ * Inicialmente oculto
+ */
+.nav__submenu {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    list-style: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+/* Cuando el dropdown está abierto */
+.nav__item--dropdown.open .nav__submenu {
+    max-height: 500px; /* Suficiente para 6 items */
+    opacity: 1;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+}
+
+/**
+ * Links del submenú
+ */
+.nav__sublink {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-light, #666666);
+    text-decoration: none;
+    font-family: var(--font-family-base, 'Inter', sans-serif);
+    font-weight: 400;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav__sublink:hover {
+    background-color: rgba(74, 20, 140, 0.03);
+    color: var(--color-primary, #4A148C);
+    padding-left: 1.5rem;
+}
+
+.nav__sublink:active {
+    background-color: rgba(74, 20, 140, 0.08);
+}
+
+.nav__sublink:focus-visible {
+    outline: 2px solid var(--color-accent, #FFB300);
+    outline-offset: 2px;
+}
+
+/**
+ * Para desktop, estos estilos se sobrescribirán en pasos posteriores
+ */
+@media (min-width: 1024px) {
+    .nav__submenu {
+        /* Se redefinirá en Paso 17 */
+        display: none;
+    }
+    
+    .nav__item--dropdown > .nav__link::after {
+        /* Se redefinirá en desktop */
+        top: 50%;
+        right: 0.5rem;
+    }
+}
+
+/* ============================================================================
+   PASO 10: CTA COTIZAR DESTACADO EN MOBILE
+   ============================================================================ */
+
+/**
+ * CTA de Cotizar con estilo destacado
+ * En mobile aparece como botón llamativo dentro del menú
+ */
+.nav__link--cta {
+    background: linear-gradient(135deg, var(--color-primary, #4A148C), var(--color-secondary, #7B1FA2));
+    color: white !important;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 12px rgba(74, 20, 140, 0.3);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav__link--cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav__link--cta:hover {
+    background: linear-gradient(135deg, var(--color-secondary, #7B1FA2), var(--color-primary, #4A148C));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(74, 20, 140, 0.4);
+    padding-left: 1rem; /* Mantiene el padding original */
+}
+
+.nav__link--cta:hover::before {
+    left: 100%;
+}
+
+.nav__link--cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(74, 20, 140, 0.3);
+}
+
+/**
+ * Para garantizar que el padding-left del hover general no afecte al CTA
+ */
+.nav__link--cta:hover {
+    padding-left: 1rem;
+}
+
+/**
+ * Estado activo del CTA (cuando está en la página Cotizar)
+ */
+.nav__link--cta.nav__link--active {
+    background: var(--color-secondary, #7B1FA2);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--color-accent, #FFB300);
+    color: white;
+}
+
+/**
+ * Ajuste para desktop (se refinará en Paso 19)
+ */
+@media (min-width: 1024px) {
+    .nav__link--cta {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0.6rem 1.5rem;
+        white-space: nowrap;
+    }
+    
+    .nav__link--cta.nav__link--active {
+        border-left: none;
+        border-bottom: 3px solid var(--color-accent, #FFB300);
+    }
+}
+
+/**
+ * Para pantallas muy pequeñas, aseguramos que sea fácil de tocar
+ */
+@media (max-width: 360px) {
+    .nav__link--cta {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* ============================================================================
+   PASO 11: TRANSICIÓN A DESKTOP - ESTRUCTURA HORIZONTAL
+   ============================================================================ */
+
+/**
+ * Punto de quiebre principal: tablet/desktop
+ * A partir de 1024px transformamos el menú móvil en horizontal
+ */
+@media (min-width: 1024px) {
+    /**
+     * Reorganización del header container para mejor distribución
+     */
+    .header__container {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    /**
+     * El logo se mantiene en su posición
+     */
+    .logo {
+        grid-column: 1;
+    }
+    
+    /**
+     * La navegación ocupa el centro
+     */
+    .nav {
+        grid-column: 2;
+        justify-self: end; /* Alinea a la derecha dentro de su celda */
+        width: 100%;
+    }
+    
+    /**
+     * WhatsApp va al final
+     */
+    .header__whatsapp {
+        grid-column: 3;
+        margin-left: 0;
+    }
+    
+    /**
+     * Menú horizontal: reset completo del estilo móvil
+     */
+    .nav__menu {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        position: static;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        max-height: none;
+        overflow: visible;
+    }
+    
+    /**
+     * Items del menú en horizontal
+     */
+    .nav__item {
+        margin: 0;
+        border: none;
+        padding: 0;
+        position: relative;
+    }
+    
+    /**
+     * Links en horizontal
+     */
+    .nav__link {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        white-space: nowrap;
+        border-radius: 6px;
+    }
+    
+    .nav__link:hover {
+        padding-left: 1rem; /* Reset del efecto mobile */
+        background-color: rgba(74, 20, 140, 0.05);
+    }
+    
+    /**
+     * Estado activo en desktop (borde inferior)
+     */
+    .nav__link--active {
+        border-left: none;
+        border-bottom: 3px solid var(--color-primary, #4A148C);
+        border-radius: 0;
+        background-color: transparent;
+        padding-bottom: calc(0.5rem - 3px); /* Compensa el borde */
+    }
+    
+    /**
+     * Ocultamos cualquier overlay o pseudo-elemento que no corresponda
+     */
+    .nav__menu::before {
+        display: none;
+    }
+    
+    /**
+     * El botón hamburguesa ya está oculto desde Paso 6
+     * pero reforzamos
+     */
+    .nav__toggle {
+        display: none;
+    }
+}
+
+/* ============================================================================
+   PASO 12: DROPDOWN DESKTOP - ESTRUCTURA Y POSICIONAMIENTO
+   ============================================================================ */
+
+/**
+ * Estilos específicos para dropdown en desktop
+ * Se activan a partir del breakpoint de desktop
+ */
+@media (min-width: 1024px) {
+    /**
+     * El contenedor del dropdown necesita position relative
+     * para posicionar el submenú absolutamente
+     */
+    .nav__item--dropdown {
+        position: relative;
+    }
+    
+    /**
+     * Ajustamos el link principal del dropdown
+     * para tener espacio para la flecha
+     */
+    .nav__item--dropdown > .nav__link {
+        padding-right: 2rem;
+        position: relative;
+    }
+    
+    /**
+     * Flecha indicadora para dropdown (solo desktop)
+     */
+    .nav__item--dropdown > .nav__link::after {
+        content: '';
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 0.5rem;
+        height: 0.5rem;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transition: transform 0.2s ease;
+        opacity: 0.7;
+    }
+    
+    /**
+     * La flecha rota cuando el dropdown está abierto (hover o focus)
+     * Nota: Requiere manejo con JS o CSS :hover en el item
+     */
+    .nav__item--dropdown:hover > .nav__link::after,
+    .nav__item--dropdown:focus-within > .nav__link::after {
+        transform: translateY(-50%) rotate(-135deg);
+    }
+    
+    /**
+     * Submenú en desktop
+     * Inicialmente oculto, aparece en hover/focus
+     */
+    .nav__submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 220px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 0.75rem 0;
+        margin: 0;
+        list-style: none;
+        z-index: 100;
+        
+        /* Estado inicial oculto */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+        
+        /* Reset de estilos mobile */
+        max-height: none;
+        background-color: white;
+        overflow: visible;
+    }
+    
+    /**
+     * Mostrar submenú en hover o focus
+     */
+    .nav__item--dropdown:hover .nav__submenu,
+    .nav__item--dropdown:focus-within .nav__submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    /**
+     * Flecha decorativa del submenú (opcional)
+     */
+    .nav__submenu::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: 1.5rem;
+        width: 12px;
+        height: 12px;
+        background: white;
+        transform: rotate(45deg);
+        border-radius: 2px;
+        box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.04);
+    }
+    
+    /**
+     * Estilo para los items del submenú desktop
+     */
+    .nav__sublink {
+        display: block;
+        padding: 0.6rem 1.5rem;
+        color: var(--color-text, #333333);
+        text-decoration: none;
+        font-family: var(--font-family-base, 'Inter', sans-serif);
+        font-weight: 400;
+        font-size: 0.9375rem;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+    
+    .nav__sublink:hover {
+        background-color: rgba(74, 20, 140, 0.05);
+        color: var(--color-primary, #4A148C);
+        padding-left: 2rem;
+    }
+    
+    .nav__sublink:focus-visible {
+        outline: 2px solid var(--color-accent, #FFB300);
+        outline-offset: -2px;
+    }
+    
+    /**
+     * Ajuste para el último item del submenú (sin borde)
+     */
+    .nav__sublink:last-child {
+        border-bottom: none;
+    }
+}
+
+/**
+ * Soporte para dispositivos táctiles en desktop
+ * En tablets grandes que usen el breakpoint pero sean táctiles,
+ * el dropdown se abre con click (requiere JS)
+ * Este estilo asegura que el submenú sea utilizable
+ */
+@media (min-width: 1024px) and (hover: none) and (pointer: coarse) {
+    .nav__submenu {
+        display: none; /* Se controla con JS añadiendo clase .open */
+    }
+    
+    .nav__item--dropdown.open .nav__submenu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================================
+   PASO 13: AJUSTES FINALES MENÚ DESKTOP (SIN SUBRAYADO)
+   ============================================================================ */
+
+/**
+ * Refinamientos de espaciado y alineación para desktop
+ */
+@media (min-width: 1024px) {
+    /**
+     * Mejor distribución del header__main
+     */
+    .header__main {
+        padding: 0.5rem 0;
+    }
+    
+    /**
+     * Ajuste fino del gap entre items del menú
+     */
+    .nav__menu {
+        gap: 0.25rem;
+    }
+    
+    /**
+     * Separación visual entre items regulares y el CTA
+     */
+    .nav__item:has(.nav__link--cta) {
+        margin-left: 0.75rem;
+    }
+    
+    /**
+     * Mejor alineación vertical de todos los elementos
+     */
+    .nav__link {
+        line-height: 1.4;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+    }
+    
+    /**
+     * Ajuste específico para el link activo con borde inferior
+     */
+    .nav__link--active {
+        padding-bottom: calc(0.5rem - 2px); /* Ajuste fino para borde de 3px */
+        font-weight: 600;
+        color: var(--color-primary, #4A148C);
+    }
+    
+    /**
+     * Hover simple sin subrayado (solo cambio de color)
+     */
+    .nav__link:hover {
+        color: var(--color-primary, #4A148C);
+        background-color: rgba(74, 20, 140, 0.03);
+        border-radius: 6px;
+    }
+    
+    /**
+     * Ajuste para pantallas muy anchas
+     */
+    @media (min-width: 1440px) {
+        .nav__menu {
+            gap: 0.5rem;
+        }
+        
+        .nav__link {
+            padding: 0.6rem 1.2rem;
+            font-size: 1.05rem;
+        }
+        
+        .nav__item:has(.nav__link--cta) {
+            margin-left: 1.25rem;
+        }
+    }
+    
+    /**
+     * Ajuste para pantallas entre 1024px y 1200px (evitar saltos)
+     */
+    @media (min-width: 1024px) and (max-width: 1199px) {
+        .header__container {
+            gap: 1rem;
+        }
+        
+        .nav__link {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9375rem;
+        }
+        
+        .nav__item--dropdown > .nav__link {
+            padding-right: 1.75rem;
+        }
+    }
+}
+
+/**
+ * Garantizar que el header sea sticky en todas las pantallas
+ * (opcional, depende del diseño)
+ */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/**
+ * Sombra más pronunciada al hacer scroll (se puede controlar con JS)
+ */
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * Ajustes de accesibilidad para focus visible en todo el header
+ */
+.header *:focus-visible {
+    outline: 2px solid var(--color-accent, #FFB300);
+    outline-offset: 2px;
+    z-index: 1001; /* Asegura que el focus sea visible */
+}
+
+/**
+ * Mejora para el dropdown en hover con retardo (evita cierres abruptos)
+ */
+@media (min-width: 1024px) {
+    .nav__item--dropdown {
+        transition: 0.25s;
+    }
+    
+    .nav__item--dropdown .nav__submenu {
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+        transition-delay: 0.1s;
+    }
+    
+    .nav__item--dropdown:hover .nav__submenu,
+    .nav__item--dropdown:focus-within .nav__submenu {
+        transition-delay: 0s;
+    }
+}
+/* ============================================================================
+   PASO 14: ACCESIBILIDAD Y MICRO-INTERACCIONES
+   ============================================================================ */
+
+/**
+ * Mejoras de accesibilidad WCAG
+ * Estados focus visibles en todos los elementos interactivos
+ */
+
+/* Reset de outline solo para mantener consistencia */
+.header a:focus,
+.header button:focus {
+    outline: none;
+}
+
+/* Focus visible personalizado (solo cuando se navega con teclado) */
+.header a:focus-visible,
+.header button:focus-visible {
+    outline: 2px solid var(--color-accent, #FFB300);
+    outline-offset: 2px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 1002;
+}
+
+/* Skip to content link (oculto visualmente pero disponible para lectores de pantalla) */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary, #4A148C);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 0 0 8px 0;
+    font-weight: 500;
+    z-index: 10000;
+    transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+    top: 0;
+    outline: 2px solid var(--color-accent, #FFB300);
+    outline-offset: 2px;
+}
+
+/**
+ * Micro-interacciones mejoradas
+ */
+
+/* Transición suave para cambios de color */
+.header__top,
+.header__main,
+.nav__link,
+.header__whatsapp,
+.logo {
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+/* Efecto de ripple suave en clicks (opcional) */
+.nav__link:active:not(.nav__link--cta),
+.header__phone:active,
+.nav__toggle:active {
+    transform: scale(0.97);
+}
+
+/* Indicador de carga para links (si se necesita en el futuro) */
+.nav__link.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+.nav__link.loading::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    right: 0.5rem;
+    top: 50%;
+    margin-top: -0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/**
+ * Mejoras para lectores de pantalla
+ */
+
+/* Ocultar visualmente pero mantener para lectores */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* Indicador de página actual para lectores de pantalla */
+.nav__link--active .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Asegurar que el menú sea navegable por teclado en mobile */
+@media (max-width: 1023px) {
+    .nav__toggle[aria-expanded="true"] + .nav__menu {
+        /* El menú está visible, aseguramos que los items sean focusables */
+        pointer-events: auto;
+    }
+    
+    .nav__toggle[aria-expanded="false"] + .nav__menu .nav__link {
+        /* Cuando el menú está oculto, los links no deben ser focusables */
+        visibility: hidden;
+    }
+}
+
+/**
+ * High contrast mode support (Windows)
+ */
+@media (prefers-contrast: high) {
+    .header {
+        border-bottom: 2px solid WindowText;
+    }
+    
+    .header__top {
+        background-color: WindowText;
+        color: Window;
+        border-bottom: 2px solid Window;
+    }
+    
+    .nav__link--cta {
+        background: WindowText;
+        color: Window;
+        border: 2px solid Window;
+    }
+    
+    .header__whatsapp {
+        background-color: WindowText;
+        color: Window;
+        border: 2px solid Window;
+    }
+    
+    .nav__toggle {
+        border: 2px solid WindowText;
+    }
+    
+    .nav__hamburger,
+    .nav__hamburger::before,
+    .nav__hamburger::after {
+        background-color: WindowText;
+    }
+}
+
+/**
+ * Reduced motion preferences
+ */
+@media (prefers-reduced-motion: reduce) {
+    .header,
+    .header *,
+    .header *::before,
+    .header *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/**
+ * Toques finales: micro-interacción en el teléfono del header__top
+ */
+.header__phone {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.header__phone:hover {
+    color: var(--color-accent, #FFB300);
+}
+
+.header__phone:hover::before {
+    content: '📞';
+    margin-right: 0.25rem;
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+/**
+ * Mejora visual para el ícono de WhatsApp
+ */
+.header__whatsapp span {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.header__whatsapp:hover span {
+    transform: scale(1.1);
+}
+
+/**
+ * Garantizar que el menú desktop no se desborde en pantallas estrechas
+ */
+@media (min-width: 1024px) and (max-width: 1100px) {
+    .nav__menu {
+        gap: 0.15rem;
+    }
+    
+    .nav__link {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.875rem;
+    }
+    
+    .nav__item--dropdown > .nav__link {
+        padding-right: 1.5rem;
+    }
+}
+
+/* ============================================================================
+   PASO 15: PRUEBAS EN VIEWPORTS Y AJUSTES FINALES
+   ============================================================================ */
+
+/**
+ * Ajustes para móviles pequeños (menos de 360px)
+ */
+@media (max-width: 359px) {
+    .header__top {
+        font-size: 0.75rem; /* 12px */
+    }
+    
+    .header__contact {
+        gap: 0.5rem;
+    }
+    
+    .logo__img {
+        height: 35px; /* Logo más pequeño */
+    }
+    
+    .header__whatsapp {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.25rem;
+    }
+    
+    .nav__toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    .nav__hamburger {
+        width: 1.25rem;
+    }
+    
+    .nav__hamburger::before,
+    .nav__hamburger::after {
+        width: 1.25rem;
+    }
+    
+    .nav__link {
+        font-size: 1rem;
+        padding: 0.6rem 0.75rem;
+    }
+}
+
+/**
+ * Ajustes para móviles estándar (360px - 480px)
+ */
+@media (min-width: 360px) and (max-width: 480px) {
+    .header__contact {
+        font-size: 0.8125rem;
+    }
+    
+    .header__schedule {
+        display: inline; /* Siempre visible */
+    }
+}
+
+/**
+ * Ajustes para tablets verticales (481px - 768px)
+ */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header__main {
+        padding: 0.6rem 0;
+    }
+    
+    .logo__img {
+        height: 42px;
+    }
+    
+    .nav__menu {
+        padding: 2rem 1.5rem; /* Más espacio en tablets */
+    }
+    
+    .nav__link {
+        font-size: 1.2rem; /* Ligeramente más grande */
+        padding: 0.9rem 1.2rem;
+    }
+    
+    .nav__sublink {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+/**
+ * Ajustes para tablets horizontales / desktop pequeño (769px - 1023px)
+ */
+@media (min-width: 769px) and (max-width: 1023px) {
+    /**
+     * En este rango podemos mostrar una versión híbrida
+     * O mantener el menú hamburguesa pero con mejor espaciado
+     */
+    .header__container {
+        gap: 1.5rem;
+    }
+    
+    .logo__img {
+        height: 45px;
+    }
+    
+    .header__whatsapp {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    /* Menú hamburguesa un poco más pequeño pero manteniendo área táctil */
+    .nav__toggle {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    
+    /* Panel del menú con más ancho */
+    .nav__menu {
+        width: 400px;
+        left: auto;
+        right: 0;
+        border-radius: 0 0 0 20px;
+    }
+}
+
+/**
+ * Ajustes para desktop estándar (1024px - 1280px) - refinamientos
+ */
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .header__container {
+        gap: 1.5rem;
+    }
+    
+    .nav__menu {
+        gap: 0.15rem;
+    }
+    
+    .nav__link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9375rem;
+    }
+    
+    .nav__item--dropdown > .nav__link {
+        padding-right: 1.8rem;
+    }
+    
+    /* Ajuste para que el CTA no se vea apretado */
+    .nav__link--cta {
+        padding: 0.5rem 1.2rem;
+        margin-left: 0.25rem;
+    }
+}
+
+/**
+ * Ajustes para desktop grande (1281px - 1440px)
+ */
+@media (min-width: 1281px) and (max-width: 1440px) {
+    .nav__menu {
+        gap: 0.35rem;
+    }
+    
+    .nav__link {
+        padding: 0.55rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .nav__link--cta {
+        padding: 0.55rem 1.5rem;
+    }
+}
+
+/**
+ * Ajustes para pantallas ultra-wide (más de 1440px)
+ */
+@media (min-width: 1441px) {
+    .container {
+        max-width: 1400px; /* Contenedor más ancho */
+    }
+    
+    .header__main {
+        padding: 1rem 0;
+    }
+    
+    .nav__menu {
+        gap: 0.75rem;
+    }
+    
+    .nav__link {
+        padding: 0.6rem 1.25rem;
+        font-size: 1.1rem;
+    }
+    
+    .nav__link--cta {
+        padding: 0.6rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .header__whatsapp {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.75rem;
+    }
+}
+
+/**
+ * Ajustes para modo landscape en móviles
+ */
+@media (max-width: 896px) and (orientation: landscape) {
+    .nav__menu {
+        max-height: calc(100vh - 150px); /* Más altura en landscape */
+    }
+    
+    .nav__item {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .nav__link {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .nav__submenu {
+        max-height: 200px; /* Limitar altura del submenú */
+        overflow-y: auto;
+    }
+}
+
+/**
+ * Correcciones para navegadores específicos
+ */
+
+/* Fix para Safari en iOS (evita que el menú se superponga mal) */
+@supports (-webkit-touch-callout: none) {
+    .nav__menu {
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    }
+    
+    .header {
+        -webkit-backdrop-filter: none; /* Evita bugs con backdrop-filter */
+    }
+}
+
+/* Fix para Firefox (alineación de flechas en dropdown) */
+@-moz-document url-prefix() {
+    .nav__item--dropdown > .nav__link::after {
+        margin-top: -0.2rem;
+    }
+}
+
+/**
+ * Ajustes de último momento para garantizar consistencia
+ */
+
+/* Asegurar que el header no tenga espacios blancos no deseados */
+.header {
+    line-height: 1.2;
+}
+
+/* Garantizar que los textos no se corten */
+.nav__link,
+.nav__sublink,
+.header__phone,
+.header__schedule {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sombra más pronunciada al hacer scroll (requiere JS para añadir clase) */
+.header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Transición suave para el cambio de sombra */
+.header {
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/**
+ * Debug visual (opcional, para desarrollo)
+ * Se puede activar agregando la clase .debug al header
+ */
+.header.debug {
+    outline: 1px solid red;
+}
+
+.header.debug * {
+    outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+/**
+ * FIN DEL HEADER
+ * ============================================================================
+ * Versión: 1.0
+ * Última actualización: 2026
+ * Compatibilidad: Todos los navegadores modernos, IE11 con polyfills
+ */
