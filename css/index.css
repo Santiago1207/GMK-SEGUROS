@@ -866,3 +866,125 @@
         gap: var(--spacing-2xl);
     }
 }
+
+/* =============================================
+   COMPONENTES DE CONFIANZA   
+   ============================================= */
+
+/* ---------------------------------------------
+   Sección de confianza (stats + aliadas)
+   --------------------------------------------- */
+.confianza {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-2xl) 0;
+}
+
+/* ---------------------------------------------
+   Grid de estadísticas
+   --------------------------------------------- */
+.confianza__stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* ---------------------------------------------
+   Item de estadística
+   --------------------------------------------- */
+.stat-item {
+    text-align: center;
+}
+
+.stat-item__number {
+    font-family: var(--font-family-numbers);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+}
+
+.stat-item__label {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------------------------------------
+   Sección de empresas aliadas
+   --------------------------------------------- */
+.confianza__aliadas {
+    text-align: center;
+}
+
+.confianza__aliadas h3 {
+    font-size: var(--font-size-md);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+/* ---------------------------------------------
+   Logos de aliadas
+   --------------------------------------------- */
+.confianza__logos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.confianza__logo-item {
+    max-width: 120px;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all var(--transition-base);
+}
+
+.confianza__logo-item:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.confianza__logo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------------------------------------------
+   Registro y certificaciones
+   --------------------------------------------- */
+.confianza__registro {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-primary-lighter);
+}
+
+/* ---------------------------------------------
+   Media queries
+   --------------------------------------------- */
+@media (min-width: 768px) {
+    .confianza__stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .confianza__logos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .stat-item__number {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .confianza__logos {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
