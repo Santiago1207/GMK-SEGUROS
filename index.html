@@ -25,6 +25,7 @@
 
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -99,9 +100,64 @@
 
     <!-- FOOTER -->
     <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="images/logo.svg" alt="GMK SEGUROS" class="footer__logo" width="150" height="40">
+                    <p class="footer__description">Protegemos lo que más valoras. Asesoría especializada en seguros para
+                        familias y empresas en Bogotá.</p>
+                    <div class="footer__social" role="list" aria-label="Redes sociales">
+                        <a href="#" class="footer__social-link" aria-label="Facebook" role="listitem">FB</a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn" role="listitem">LI</a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram" role="listitem">IG</a>
+                    </div>
+                </div>
+
+                <nav class="footer__nav" aria-label="Seguros">
+                    <h3 class="footer__title">Nuestros Seguros</h3>
+                    <ul class="footer__list">
+                        <li><a href="seguros-auto.html" class="footer__link">Seguro de Autos</a></li>
+                        <li><a href="seguros-hogar.html" class="footer__link">Seguro de Hogar</a></li>
+                        <li><a href="seguros-vida.html" class="footer__link">Seguro de Vida</a></li>
+                        <li><a href="seguros-salud.html" class="footer__link">Seguro de Salud</a></li>
+                        <li><a href="seguros-empresas.html" class="footer__link">Seguros Empresariales</a></li>
+                        <li><a href="seguros-moto.html" class="footer__link">Seguro de Motos</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footer__nav" aria-label="Empresa">
+                    <h3 class="footer__title">GMK SEGUROS</h3>
+                    <ul class="footer__list">
+                        <li><a href="nosotros.html" class="footer__link">Quiénes Somos</a></li>
+                        <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+                        <li><a href="#" class="footer__link">Preguntas Frecuentes</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer__contact">
+                    <h3 class="footer__title">Contáctenos</h3>
+                    <address class="footer__address">
+                        <p>Calle 00 # 00-00</p>
+                        <p>Bogotá, Colombia</p>
+                        <p><a href="tel:+5710000000" class="footer__link">(601) 000-0000</a></p>
+                        <p><a href="mailto:info@gmkseguros.com" class="footer__link">info@gmkseguros.com</a></p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="footer__legal">
+                <p class="footer__copyright">&copy; 2026 GMK SEGUROS. Todos los derechos reservados.</p>
+                <div class="footer__legal-links">
+                    <a href="#" class="footer__link footer__link--small">Política de Privacidad</a>
+                    <a href="#" class="footer__link footer__link--small">Términos de Uso</a>
+                    <span class="footer__registro">Registro ante la Superintendencia Financiera de Colombia</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Justo antes de cerrar el body -->
     <script src="js/carrusel.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,262 @@
+/* =============================================
+   FOOTER COMPLETO
+   ============================================= */
+/* ---------------------------------------------
+   Footer contenedor principal
+   --------------------------------------------- */
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-2xl) 0 var(--spacing-md);
+    margin-top: var(--spacing-3xl);
+}
+
+/* ---------------------------------------------
+   Grid del footer (mobile: 1 columna)
+   --------------------------------------------- */
+.footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+}
+
+/* ---------------------------------------------
+   Marca / logo + descripción
+   --------------------------------------------- */
+.footer__brand {
+    text-align: center;
+}
+
+.footer__logo {
+    display: inline-block;
+    max-width: 160px;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer__logo img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0) invert(1); /* Vuelve el logo blanco */
+}
+
+.footer__description {
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-lg);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------------------------------------------
+   Redes sociales en footer
+   --------------------------------------------- */
+.footer__social {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-full);
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* ---------------------------------------------
+   Navegación del footer
+   --------------------------------------------- */
+.footer__nav {
+    text-align: center;
+}
+
+.footer__title {
+    color: var(--color-white);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.footer__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.footer__link {
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast), padding-left var(--transition-fast);
+    display: inline-block;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+    color: var(--color-white);
+    padding-left: var(--spacing-xs);
+}
+
+.footer__link--small {
+    font-size: var(--font-size-xs);
+}
+
+/* ---------------------------------------------
+   Contacto
+   --------------------------------------------- */
+.footer__contact {
+    text-align: center;
+}
+
+.footer__address {
+    font-style: normal;
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.footer__address i,
+.footer__address svg {
+    color: var(--color-accent);
+    margin-right: var(--spacing-xs);
+}
+
+/* ---------------------------------------------
+   Legal y copyright
+   --------------------------------------------- */
+.footer__legal {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer__copyright {
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer__legal-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.footer__registro {
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-sm);
+    font-weight: var(--font-weight-light);
+}
+
+/* ---------------------------------------------
+   Media query: tablet (2 columnas)
+   --------------------------------------------- */
+@media (min-width: 768px) {
+    .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .footer__brand {
+        grid-column: span 2;
+        text-align: center;
+    }
+    
+    .footer__brand .footer__description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .footer__title::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .footer__nav,
+    .footer__contact {
+        text-align: left;
+    }
+}
+
+/* ---------------------------------------------
+   Media query: desktop (4 columnas)
+   --------------------------------------------- */
+@media (min-width: 1024px) {
+    .footer {
+        padding: var(--spacing-3xl) 0 var(--spacing-lg);
+    }
+    
+    .footer__grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .footer__brand {
+        grid-column: span 1;
+        text-align: left;
+    }
+    
+    .footer__brand .footer__description {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .footer__social {
+        justify-content: flex-start;
+    }
+    
+    .footer__title::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .footer__legal {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .footer__copyright {
+        margin-bottom: 0;
+    }
+}
+
+/* ---------------------------------------------
+   Media query: pantallas grandes
+   --------------------------------------------- */
+@media (min-width: 1280px) {
+    .footer__grid {
+        gap: var(--spacing-2xl);
+    }
+}
