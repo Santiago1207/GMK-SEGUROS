@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -96,6 +97,122 @@
 
     <!-- MAIN: Contenido específico de INICIO -->
     <main id="main-content" class="main" role="main">
+        <section class="hero-carousel" aria-label="Promociones destacadas">
+            <div class="hero-carousel__container">
+                <!-- Slides del carrusel -->
+                <div class="hero-carousel__slides">
+
+                    <!-- Slide 1 -->
+                    <article class="hero-carousel__slide is-active">
+                        <div class="hero-carousel__image-wrapper">
+                            <img src="images/seguro1.png" alt="Auto flamante en carretera - Promoción Seguro Auto"
+                                class="hero-carousel__image" loading="eager">
+                        </div>
+                        <div class="hero-carousel__content">
+                            <h2 class="hero-carousel__title visually-hidden">Seguro de Auto</h2>
+                            <div class="hero-carousel__cta">
+                                <a href="/seguros/auto" class="btn btn--accent btn--large">
+                                    Cotiza tu Seguro Auto
+                                    <span class="btn__icon" aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 2 -->
+                    <article class="hero-carousel__slide">
+                        <div class="hero-carousel__image-wrapper">
+                            <img src="images/SEGURO DE HOGAR DRIVE.png"
+                                alt="Familia feliz en casa - Promoción Seguro Hogar" class="hero-carousel__image"
+                                loading="lazy">
+                        </div>
+                        <div class="hero-carousel__content">
+                            <h2 class="hero-carousel__title visually-hidden">Seguro de Hogar</h2>
+                            <div class="hero-carousel__cta">
+                                <a href="/seguros/hogar" class="btn btn--accent btn--large">
+                                    Protege tu Hogar
+                                    <span class="btn__icon" aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 3 -->
+                    <article class="hero-carousel__slide">
+                        <div class="hero-carousel__image-wrapper">
+                            <img src="assets/images/promos/salud-familiar.webp"
+                                alt="Consultorio médico moderno - Promoción Seguro Salud" class="hero-carousel__image"
+                                loading="lazy">
+                        </div>
+                        <div class="hero-carousel__content">
+                            <h2 class="hero-carousel__title visually-hidden">Seguro de Salud</h2>
+                            <div class="hero-carousel__cta">
+                                <a href="/seguros/salud" class="btn btn--accent btn--large">
+                                    Salud para tu Familia
+                                    <span class="btn__icon" aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Slide 4 -->
+                    <article class="hero-carousel__slide">
+                        <div class="hero-carousel__image-wrapper">
+                            <img src="assets/images/promos/vida-tranquila.webp"
+                                alt="Persona mayor disfrutando - Promoción Seguro Vida" class="hero-carousel__image"
+                                loading="lazy">
+                        </div>
+                        <div class="hero-carousel__content">
+                            <h2 class="hero-carousel__title visually-hidden">Seguro de Vida</h2>
+                            <div class="hero-carousel__cta">
+                                <a href="/seguros/vida" class="btn btn--accent btn--large">
+                                    Asegura su Futuro
+                                    <span class="btn__icon" aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Controles del carrusel -->
+                <div class="hero-carousel__controls">
+                    <!-- Flechas de navegación -->
+                    <button class="hero-carousel__arrow hero-carousel__arrow--prev" aria-label="Promoción anterior"
+                        title="Anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <button class="hero-carousel__arrow hero-carousel__arrow--next" aria-label="Siguiente promoción"
+                        title="Siguiente">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <!-- Indicadores (puntos) -->
+                    <div class="hero-carousel__indicators" role="tablist" aria-label="Seleccionar slide">
+                        <button class="hero-carousel__indicator is-active" role="tab"
+                            aria-label="Ver slide 1: Seguro Auto" aria-selected="true" title="Slide 1"></button>
+                        <button class="hero-carousel__indicator" role="tab" aria-label="Ver slide 2: Seguro Hogar"
+                            aria-selected="false" title="Slide 2"></button>
+                        <button class="hero-carousel__indicator" role="tab" aria-label="Ver slide 3: Seguro Salud"
+                            aria-selected="false" title="Slide 3"></button>
+                        <button class="hero-carousel__indicator" role="tab" aria-label="Ver slide 4: Seguro Vida"
+                            aria-selected="false" title="Slide 4"></button>
+                    </div>
+                </div>
+
+                <!-- Temporizador visual (opcional - barra de progreso) -->
+                <div class="hero-carousel__timer" role="presentation" aria-hidden="true">
+                    <div class="hero-carousel__timer-progress"></div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- FOOTER -->
