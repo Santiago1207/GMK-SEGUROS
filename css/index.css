@@ -428,7 +428,441 @@
         width: 32px;
     }
 }
-
 /* ---------------------------------------------
    FIN DE carrusel
    --------------------------------------------- */
+
+/* =============================================
+   CARDS DE SEGUROS
+   ============================================= */
+
+/* ---------------------------------------------
+   Card base para seguros (versión homepage)
+   --------------------------------------------- */
+.card-seguro {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--box-shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-primary-lighter);
+}
+
+.card-seguro:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-lg);
+    border-color: var(--color-primary-light);
+}
+
+/* ---------------------------------------------
+   Ícono del seguro
+   --------------------------------------------- */
+.card-seguro__icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primary-lighter);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    font-size: var(--font-size-2xl);
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+.card-seguro:hover .card-seguro__icon {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ---------------------------------------------
+   Título del seguro
+   --------------------------------------------- */
+.card-seguro__title {
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ---------------------------------------------
+   Descripción
+   --------------------------------------------- */
+.card-seguro__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* ---------------------------------------------
+   Lista de características
+   --------------------------------------------- */
+.card-seguro__features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.card-seguro__features li {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-dark);
+    padding: var(--spacing-xs) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border-bottom: 1px dashed var(--color-primary-lighter);
+}
+
+.card-seguro__features li:last-child {
+    border-bottom: none;
+}
+
+.card-seguro__features li::before {
+    content: "✓";
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+}
+
+/* ---------------------------------------------
+   Link "Ver más"
+   --------------------------------------------- */
+.card-seguro__link {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-top: auto;
+    transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.card-seguro__link:hover {
+    color: var(--color-primary-light);
+    gap: var(--spacing-sm);
+}
+
+.card-seguro__link::after {
+    content: "→";
+    font-size: var(--font-size-md);
+    transition: transform var(--transition-fast);
+}
+
+.card-seguro__link:hover::after {
+    transform: translateX(3px);
+}
+
+/* ---------------------------------------------
+   Card para catálogo de seguros (versión detallada)
+   --------------------------------------------- */
+.seguro-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-md);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+}
+
+.seguro-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-lg);
+    border-color: var(--color-accent);
+}
+
+/* ---------------------------------------------
+   Header de la card detallada
+   --------------------------------------------- */
+.seguro-card__header {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    padding: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.seguro-card__icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: var(--font-size-xl);
+    backdrop-filter: blur(4px);
+}
+
+.seguro-card__title {
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    margin-bottom: 0;
+}
+
+/* ---------------------------------------------
+   Contenido de la card detallada
+   --------------------------------------------- */
+.seguro-card__content {
+    padding: var(--spacing-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.seguro-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------
+   Características con check
+   --------------------------------------------- */
+.seguro-card__features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+}
+
+.seguro-card__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-dark);
+}
+
+.seguro-card__check {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------
+   Footer de la card detallada
+   --------------------------------------------- */
+.seguro-card__footer {
+    padding: var(--spacing-lg);
+    padding-top: 0;
+}
+
+.seguro-card__link {
+    width: 100%;
+    text-align: center;
+}
+
+/* ---------------------------------------------
+   Grid de cards (contenedor)
+   --------------------------------------------- */
+.seguros__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.seguros-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.seguros .container {
+    padding-top: var(--spacing-xl);
+}
+
+/* ---------------------------------------------
+   Botón base
+   --------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    font-family: var(--font-family-titles);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 2px solid transparent;
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------
+   Botón primario (morado)
+   --------------------------------------------- */
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+}
+
+/* ---------------------------------------------
+   Botón secundario (borde morado)
+   --------------------------------------------- */
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+    background-color: var(--color-primary-lighter);
+    border-color: var(--color-primary-light);
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------
+   Tamaños de botón
+   --------------------------------------------- */
+.btn--small {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-xs);
+}
+
+.btn--large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-md);
+}
+
+.btn--full {
+    width: 100%;
+    display: flex;
+}
+
+/* ---------------------------------------------
+   Estado disabled
+   --------------------------------------------- */
+.btn:disabled,
+.btn--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Centrar títulos de sección */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header .section-title {
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-header .section-subtitle {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centrar botón CTA */
+.seguros__cta {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+/* Centrar títulos de sección */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header .section-title {
+    margin-bottom: var(--spacing-sm); /* Espacio entre título y subtítulo */
+}
+
+.section-header .section-subtitle {
+    max-width: 600px; /* Opcional: limita el ancho del subtítulo para mejor legibilidad */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Línea decorativa debajo del título */
+.section-header .section-title {
+    position: relative;
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-header .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Ancho de la línea */
+    height: 3px; /* Grosor de la línea */
+    background-color: #FFD700; /* Amarillo */
+    border-radius: 2px;
+}
+
+/* ---------------------------------------------
+   Media queries
+   --------------------------------------------- */
+@media (min-width: 480px) {
+    .seguros__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .seguros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .card-seguro {
+        padding: var(--spacing-xl);
+    }
+    
+    .card-seguro__icon {
+        width: 70px;
+        height: 70px;
+        font-size: var(--font-size-3xl);
+    }
+    
+    .card-seguro__title {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .seguros__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .seguros-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .seguros-grid {
+        gap: var(--spacing-2xl);
+    }
+}
