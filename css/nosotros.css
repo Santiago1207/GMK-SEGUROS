@@ -1110,3 +1110,475 @@
         height: 20px;
     }
 }
+
+/* =============================================
+   PASO 2: CANVAS Y SISTEMA DE PARTÍCULAS
+   GMK Seguros - Universo en Movimiento
+   ============================================= */
+
+/* Contenedor de la sección con posición relativa para el canvas */
+.equipo {
+    position: relative;
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--color-primary) 100%);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Canvas de partículas posicionado absolutamente */
+.equipo__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none; /* Permite interactuar con el contenido debajo */
+}
+
+/* Contenedor principal por encima del canvas */
+.equipo .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header de sección con texto blanco para contraste */
+.equipo .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.equipo .section-title {
+    color: var(--color-white);
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.equipo .section-subtitle {
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-lg);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid de equipo */
+.equipo__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive: 2 columnas en desktop */
+@media (min-width: 768px) {
+    .equipo__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-2xl);
+    }
+    
+    .equipo .section-title {
+        font-size: var(--font-size-4xl);
+    }
+}
+
+/* =============================================
+   PASO 4: TARJETAS GLASSMORPHISM
+   GMK Seguros - Efecto Cristal
+   ============================================= */
+
+.asesor-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+/* Brillo superior sutil */
+.asesor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+}
+
+/* Hover efecto gravitacional */
+.asesor-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 179, 0, 0.4); /* --color-accent */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 179, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Foto del asesor */
+.asesor-card__foto {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.asesor-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+    filter: grayscale(20%);
+}
+
+.asesor-card:hover .asesor-card__img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Gradiente overlay en la imagen */
+.asesor-card__foto::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(74, 20, 140, 0.6), transparent);
+    pointer-events: none;
+}
+
+/* Info del asesor */
+.asesor-card__info {
+    padding: var(--spacing-lg);
+    position: relative;
+}
+
+.asesor-card__nombre {
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    font-family: var(--font-family-titles);
+}
+
+.asesor-card__cargo {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.asesor-card__especialidad {
+    color: var(--color-primary-lighter);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+}
+
+.asesor-card__bio {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Link de contacto con efecto cristal */
+.asesor-card__contacto {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(255, 179, 0, 0.15);
+    border: 1px solid rgba(255, 179, 0, 0.3);
+    border-radius: var(--border-radius-full);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-fast);
+}
+
+.asesor-card__contacto:hover {
+    background: rgba(255, 179, 0, 0.3);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+    transform: scale(1.05);
+}
+
+/* =============================================
+   PASO 5: INTERACTIVIDAD Y MICRO-ANIMACIONES
+   GMK Seguros - Efectos Avanzados
+   ============================================= */
+
+/* Animación de entrada escalonada para tarjetas */
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.asesor-card {
+    animation: cardEnter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+}
+
+.asesor-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.asesor-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+/* Efecto de brillo en hover (shimmer) */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.asesor-card:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    pointer-events: none;
+    border-radius: var(--border-radius-lg);
+}
+
+/* Efecto de pulso sutil en el cargo */
+@keyframes pulseAccent {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.asesor-card:hover .asesor-card__cargo {
+    animation: pulseAccent 2s ease-in-out infinite;
+}
+
+/* Efecto de onda al hacer click */
+.asesor-card:active {
+    transform: translateY(-4px) scale(0.98);
+}
+
+/* Mejora de foco para accesibilidad */
+.asesor-card:focus-within {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* Efecto de flotación continua sutil */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Aplicar flotación solo cuando no hay hover */
+.asesor-card:not(:hover) {
+    animation: cardEnter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               float 6s ease-in-out infinite 1s;
+}
+
+/* Efecto de partículas brillantes en hover de tarjeta */
+.asesor-card:hover .asesor-card__foto::before {
+    content: '✦';
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+    z-index: 2;
+    text-shadow: 0 0 10px var(--color-accent);
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(180deg);
+    }
+}
+
+/* Transición suave del header al hacer scroll (opcional) */
+.equipo .section-header {
+    transition: transform var(--transition-slow);
+}
+
+.equipo:hover .section-header {
+    transform: scale(1.02);
+}
+
+/* =============================================
+   PASO 6: RESPONSIVE Y OPTIMIZACIÓN
+   GMK Seguros - Performance & Accesibilidad
+   ============================================= */
+
+/* Reducción de efectos en móvil para performance */
+@media (max-width: 767px) {
+    /* Menos partículas (ya configurado en JS) */
+    
+    .equipo {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    /* Simplificar glassmorphism en móviles de baja potencia */
+    .asesor-card {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    /* Desactivar animaciones complejas en hover para touch */
+    .asesor-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .asesor-card:hover::after {
+        display: none; /* Quitar shimmer en móvil */
+    }
+    
+    /* Ajustar tipografía */
+    .equipo .section-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .asesor-card__nombre {
+        font-size: var(--font-size-md);
+    }
+}
+
+/* Tablet ajustes */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .equipo__grid {
+        gap: var(--spacing-xl);
+    }
+    
+    .asesor-card__info {
+        padding: var(--spacing-md);
+    }
+}
+
+/* Desktop mejorado */
+@media (min-width: 1024px) {
+    .equipo {
+        padding: calc(var(--spacing-3xl) * 1.5) 0;
+    }
+    
+    .equipo__grid {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    /* Efectos máximos en desktop */
+    .asesor-card {
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+}
+
+/* Preferencias de movimiento reducido (WCAG) */
+@media (prefers-reduced-motion: reduce) {
+    .asesor-card {
+        animation: none;
+        opacity: 1;
+        transition: none;
+    }
+    
+    .asesor-card:hover {
+        transform: none;
+    }
+    
+    .asesor-card__img {
+        transition: none;
+    }
+    
+    .equipo__canvas {
+        display: none; /* Quitar partículas para usuarios sensibles */
+    }
+    
+    .equipo {
+        background: var(--color-primary); /* Fondo sólido sin animación */
+    }
+}
+
+/* Modo oscuro del sistema (opcional mejora) */
+@media (prefers-color-scheme: dark) {
+    .equipo {
+        background: linear-gradient(135deg, #2d0a4e 0%, #4A148C 50%, #2d0a4e 100%);
+    }
+}
+
+/* Soporte para navegadores sin backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+    .asesor-card {
+        background: rgba(74, 20, 140, 0.85);
+    }
+}
+
+/* Optimización de impresión */
+@media print {
+    .equipo__canvas,
+    .asesor-card__contacto {
+        display: none;
+    }
+    
+    .asesor-card {
+        break-inside: avoid;
+        background: var(--color-white);
+        border: 1px solid var(--color-primary);
+    }
+    
+    .asesor-card__nombre,
+    .asesor-card__cargo,
+    .asesor-card__bio {
+        color: var(--color-text-dark);
+    }
+}
+
+/* Mejora de contraste para foco visible */
+.asesor-card__contacto:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    background: rgba(255, 179, 0, 0.4);
+}
