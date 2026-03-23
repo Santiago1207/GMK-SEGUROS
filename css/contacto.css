@@ -574,3 +574,1353 @@ Sección INFO DE CONTACTO
     top: auto;
     bottom: 0;
 }
+
+/* =============================================
+   PASO 1: ESTRUCTURA GRID DEL LAYOUT
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+.formulario-contacto {
+    padding: var(--spacing-3xl) 0;
+}
+
+.formulario-contacto__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+/* Tablet y Desktop: Layout de 2 columnas */
+@media (min-width: 1024px) {
+    .formulario-contacto__grid {
+        grid-template-columns: 1fr 380px;
+        gap: var(--spacing-2xl);
+        align-items: start;
+    }
+}
+
+/* Desktop grande: Más espacio entre columnas */
+@media (min-width: 1280px) {
+    .formulario-contacto__grid {
+        grid-template-columns: 1fr 420px;
+        gap: var(--spacing-3xl);
+    }
+}
+
+/* =============================================
+   PASO 2: ESTILOS DE LA SECCIÓN Y TÍTULOS
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+.formulario-contacto {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--color-background-main) 0%, var(--color-background-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoración sutil de fondo */
+.formulario-contacto::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--color-primary-lighter) 0%, transparent 70%);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.formulario-contacto__content {
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    display: inline-block;
+}
+
+/* Línea decorativa dorada debajo del título */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: var(--border-radius-full);
+    margin-top: var(--spacing-sm);
+}
+
+.formulario-contacto__intro {
+    font-size: var(--font-size-md);
+    color: var(--color-text-medium);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+}
+
+/* Responsive: Ajustes en desktop */
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: var(--font-size-3xl);
+    }
+    
+    .formulario-contacto__intro {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-2xl);
+    }
+}
+
+/* =============================================
+   PASO 3: ESTILOS DEL FORMULARIO BASE
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+.form-contacto {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-primary-lighter);
+    position: relative;
+    transition: box-shadow var(--transition-base);
+}
+
+.form-contacto:hover {
+    box-shadow: 0 15px 35px rgba(74, 20, 140, 0.12);
+}
+
+/* Responsive: Más padding en desktop */
+@media (min-width: 768px) {
+    .form-contacto {
+        padding: var(--spacing-2xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .form-contacto {
+        padding: var(--spacing-2xl) var(--spacing-3xl);
+    }
+}
+
+/* =============================================
+   PASO 4: SISTEMA DE FILAS Y CAMPOS
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-field {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.form-field:last-child {
+    margin-bottom: 0;
+}
+
+/* Campos especiales */
+.form-field--textarea {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-field--checkbox {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
+}
+
+.form-field--legal {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    border-left: 3px solid var(--color-accent);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Responsive: Dos columnas en tablet y desktop */
+@media (min-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .form-row {
+        gap: var(--spacing-xl);
+    }
+}
+
+/* =============================================
+   PASO 5: LABELS Y INPUTS
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* Labels */
+.form-field__label {
+    display: block;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-xs);
+    cursor: pointer;
+}
+
+/* Asterisco para campos requeridos */
+.form-field__label::after {
+    content: ' *';
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Inputs, Select y Textarea base */
+.form-field__input,
+.form-field__select,
+.form-field__textarea {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    color: var(--color-text-dark);
+    background-color: var(--color-white);
+    border: 2px solid #E0E0E0;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-base);
+    outline: none;
+}
+
+/* Placeholder */
+.form-field__input::placeholder,
+.form-field__textarea::placeholder {
+    color: var(--color-text-light);
+    opacity: 0.7;
+}
+
+/* Estados hover */
+.form-field__input:hover,
+.form-field__select:hover,
+.form-field__textarea:hover {
+    border-color: var(--color-primary-lighter);
+}
+
+/* Estados focus */
+.form-field__input:focus,
+.form-field__select:focus,
+.form-field__textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(74, 20, 140, 0.1);
+    background-color: var(--color-white);
+}
+
+/* Select personalizado */
+.form-field__select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234A148C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-md) center;
+    background-size: 20px;
+    padding-right: var(--spacing-3xl);
+}
+
+/* Textarea específico */
+.form-field__textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* Responsive: Padding más generoso en desktop */
+@media (min-width: 1024px) {
+    .form-field__input,
+    .form-field__select,
+    .form-field__textarea {
+        padding: calc(var(--spacing-md) + 2px) var(--spacing-xl);
+    }
+}
+
+/* =============================================
+   PASO 6: ESTILOS ESPECÍFICOS POR TIPO DE CAMPO
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* ============================================
+   CHECKBOXES PERSONALIZADOS
+   ============================================ */
+
+.form-field__checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.form-field__checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-medium);
+    line-height: 1.5;
+    cursor: pointer;
+    position: relative;
+    padding-left: calc(24px + var(--spacing-sm));
+}
+
+/* Caja custom del checkbox */
+.form-field__checkbox-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-primary-lighter);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-white);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+/* Check animado */
+.form-field__checkbox-label::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transform: scale(0);
+    transition: transform var(--transition-fast);
+    flex-shrink: 0;
+}
+
+/* Checkbox checked */
+.form-field__checkbox:checked + .form-field__checkbox-label::before {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+}
+
+.form-field__checkbox:checked + .form-field__checkbox-label::after {
+    transform: scale(1);
+    background-color: var(--color-white);
+    width: 6px;
+    height: 10px;
+    border: solid var(--color-white);
+    border-width: 0 2px 2px 0;
+    border-radius: 0;
+    left: 7px;
+    top: 4px;
+    transform: rotate(45deg);
+}
+
+/* Checkbox focus visible */
+.form-field__checkbox:focus-visible + .form-field__checkbox-label::before {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Link dentro del label */
+.form-field__checkbox-label a {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition-fast);
+}
+
+.form-field__checkbox-label a:hover {
+    color: var(--color-primary-light);
+}
+
+/* Checkbox legal destacado */
+.form-field--legal .form-field__checkbox-label {
+    font-size: var(--font-size-base);
+    color: var(--color-text-dark);
+    font-weight: var(--font-weight-medium);
+}
+
+.form-field--legal .form-field__checkbox-label::before {
+    border-color: var(--color-accent);
+}
+
+/* Checkbox opcional (sin asterisco) */
+.form-field--checkbox:not(.form-field--legal) .form-field__checkbox-label {
+    color: var(--color-text-light);
+    font-weight: var(--font-weight-regular);
+}
+
+/* ============================================
+   ESTADOS DE VALIDACIÓN
+   ============================================ */
+
+.form-field__input:invalid:not(:placeholder-shown),
+.form-field__select:invalid:not(:placeholder-shown),
+.form-field__textarea:invalid:not(:placeholder-shown) {
+    border-color: var(--color-error);
+}
+
+.form-field__input:valid:not(:placeholder-shown),
+.form-field__select:valid:not(:placeholder-shown),
+.form-field__textarea:valid:not(:placeholder-shown) {
+    border-color: var(--color-success);
+}
+
+/* Deshabilitar estilos de validación en checkboxes */
+.form-field__checkbox:invalid {
+    border-color: transparent;
+}
+
+/* =============================================
+   PASO 7: BOTÓN DE ENVÍO (CTA PRINCIPAL)
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* ============================================
+   BOTONES BASE
+   ============================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-family-titles);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-base);
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto ripple/shine */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   BOTÓN PRIMARIO (ENVIAR)
+   ============================================ */
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(74, 20, 140, 0.4);
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+}
+
+.btn--primary:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+}
+
+/* ============================================
+   BOTÓN SECUNDARIO
+   ============================================ */
+
+.btn--secondary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   VARIANTES DE TAMAÑO
+   ============================================ */
+
+.btn--large {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-md);
+    min-height: 56px;
+}
+
+.btn--full {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* ============================================
+   BOTÓN SUBMIT ESPECÍFICO
+   ============================================ */
+
+.btn--submit {
+    width: 100%;
+    margin-top: var(--spacing-md);
+}
+
+.btn__text {
+    display: inline-block;
+    transition: opacity var(--transition-fast);
+}
+
+/* Loader oculto por defecto */
+.btn__loader {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+}
+
+/* Estado enviando */
+.btn--submit.is-loading .btn__text {
+    display: none;
+}
+
+.btn--submit.is-loading .btn__loader {
+    display: inline-flex;
+}
+
+/* Animación del loader */
+.btn__loader::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color-white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   ACCIONES DEL FORMULARIO
+   ============================================ */
+
+.formulario-contacto__actions {
+    margin-top: var(--spacing-lg);
+}
+
+/* Responsive: Botón más grande en desktop */
+@media (min-width: 768px) {
+    .btn--submit {
+        width: auto;
+        min-width: 280px;
+    }
+    
+    .formulario-contacto__actions {
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .btn--large {
+        padding: calc(var(--spacing-md) + 4px) calc(var(--spacing-xl) + var(--spacing-sm));
+        font-size: var(--font-size-lg);
+        min-height: 64px;
+    }
+}
+
+/* =============================================
+   PASO 8: SIDEBAR Y CAJAS DE INFORMACIÓN
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* ============================================
+   SIDEBAR CONTENEDOR
+   ============================================ */
+
+.formulario-contacto__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    position: relative;
+}
+
+/* Sticky en desktop */
+@media (min-width: 1024px) {
+    .formulario-contacto__sidebar {
+        position: sticky;
+        top: calc(var(--spacing-3xl) + 80px);
+        height: fit-content;
+    }
+}
+
+/* ============================================
+   INFO BOX BASE
+   ============================================ */
+
+.info-box {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-primary-lighter);
+    box-shadow: var(--box-shadow-md);
+    transition: all var(--transition-base);
+}
+
+.info-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+/* ============================================
+   INFO BOX HIGHLIGHT (Cotizar)
+   ============================================ */
+
+.info-box--highlight {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    border: none;
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-box--highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 179, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.info-box--highlight .info-box__title {
+    color: var(--color-white);
+}
+
+.info-box--highlight .info-box__text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.info-box--highlight .btn--primary {
+    background: var(--color-accent);
+    color: var(--color-text-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.info-box--highlight .btn--primary:hover {
+    background: #FFC107;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   TIPOGRAFÍA INFO BOX
+   ============================================ */
+
+.info-box__title {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Iconos decorativos para títulos */
+.info-box__title::before {
+    content: '⚡';
+    font-size: var(--font-size-xl);
+}
+
+.info-box--highlight .info-box__title::before {
+    content: '🚀';
+}
+
+.info-box__text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-medium);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ============================================
+   BOTONES EN SIDEBAR
+   ============================================ */
+
+.info-box .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Responsive: Ajustes en móvil */
+@media (max-width: 1023px) {
+    .formulario-contacto__sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .info-box {
+        flex: 1;
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 767px) {
+    .info-box {
+        min-width: 100%;
+    }
+    
+    .formulario-contacto__sidebar {
+        gap: var(--spacing-md);
+    }
+}
+
+/* =============================================
+   PASO 9: NOTA DE SEGURIDAD Y DETALLES FINALES
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* ============================================
+   NOTA DE SEGURIDAD
+   ============================================ */
+
+.formulario-contacto__nota {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-primary-lighter);
+}
+
+.formulario-contacto__nota small {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: var(--font-weight-medium);
+}
+
+/* Icono de candado personalizado */
+.formulario-contacto__nota small::before {
+    content: '🔒';
+    font-size: var(--font-size-base);
+    filter: grayscale(100%) brightness(0.7);
+}
+
+/* ============================================
+   DETALLES FINALES Y POLISH
+   ============================================ */
+
+/* Separador visual entre formulario y nota */
+.form-contacto > *:last-of-type:not(.formulario-contacto__nota) {
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Ajuste de espaciado en el aside */
+.formulario-contacto__sidebar .info-box:last-child {
+    margin-bottom: 0;
+}
+
+/* Transición suave para todos los elementos interactivos */
+.form-contacto *,
+.formulario-contacto__sidebar * {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efecto de focus mejorado para accesibilidad */
+.form-field__input:focus-visible,
+.form-field__select:focus-visible,
+.form-field__textarea:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-color: var(--color-primary);
+}
+
+/* Placeholder con animación sutil */
+.form-field__input:focus::placeholder,
+.form-field__textarea:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(4px);
+    transition: all var(--transition-fast);
+}
+
+/* Responsive: Ajustes finales */
+@media (min-width: 1024px) {
+    .formulario-contacto__nota {
+        margin-top: var(--spacing-xl);
+        padding-top: var(--spacing-lg);
+    }
+    
+    .formulario-contacto__nota small {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* =============================================
+   PASO 10: RESPONSIVE Y ACCESIBILIDAD
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* ============================================
+   BREAKPOINTS Y AJUSTES RESPONSIVE
+   ============================================ */
+
+/* Mobile First: Ajustes base */
+@media (max-width: 479px) {
+    .formulario-contacto {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .form-contacto {
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-md);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .section-title::after {
+        width: 40px;
+        height: 3px;
+    }
+    
+    .formulario-contacto__intro {
+        font-size: var(--font-size-base);
+    }
+    
+    .btn--large {
+        font-size: var(--font-size-base);
+        min-height: 52px;
+    }
+    
+    .info-box {
+        padding: var(--spacing-lg);
+    }
+    
+    .info-box__title {
+        font-size: var(--font-size-md);
+    }
+}
+
+/* Tablet: 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .formulario-contacto__grid {
+        gap: var(--spacing-xl);
+    }
+    
+    .formulario-contacto__sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .info-box {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .info-box .btn {
+        margin-top: auto;
+    }
+}
+
+/* Desktop: 1024px - 1279px */
+@media (min-width: 1024px) {
+    .formulario-contacto {
+        padding: calc(var(--spacing-3xl) + var(--spacing-lg)) 0;
+    }
+    
+    .form-row {
+        margin-bottom: var(--spacing-lg);
+    }
+}
+
+/* Large Desktop: 1280px+ */
+@media (min-width: 1280px) {
+    .form-contacto {
+        padding: var(--spacing-3xl);
+    }
+    
+    .form-field__input,
+    .form-field__select,
+    .form-field__textarea {
+        font-size: var(--font-size-md);
+    }
+}
+
+/* ============================================
+   ACCESIBILIDAD (WCAG)
+   ============================================ */
+
+/* Respetar preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .formulario-contacto *,
+    .form-contacto *,
+    .btn,
+    .info-box,
+    .form-field__input,
+    .form-field__select,
+    .form-field__textarea {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .btn::before,
+    .formulario-contacto::before,
+    .info-box--highlight::before {
+        display: none;
+    }
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+    .form-field__input,
+    .form-field__select,
+    .form-field__textarea {
+        border-width: 3px;
+    }
+    
+    .btn--primary {
+        border: 3px solid var(--color-white);
+    }
+    
+    .form-field__checkbox-label::before {
+        border-width: 3px;
+    }
+}
+
+/* Focus visible mejorado para teclado */
+.form-contacto *:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* Skip link específico para formulario */
+.formulario-contacto .skip-link:focus {
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    z-index: calc(var(--z-index-toast) + 10);
+}
+
+/* Estados de error accesibles */
+.form-field__input[aria-invalid="true"],
+.form-field__select[aria-invalid="true"],
+.form-field__textarea[aria-invalid="true"] {
+    border-color: var(--color-error);
+    background-color: rgba(198, 40, 40, 0.05);
+}
+
+/* Mensaje de error */
+.form-field__error {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-error);
+    margin-top: var(--spacing-xs);
+}
+
+.form-field__error::before {
+    content: '⚠️';
+    font-size: var(--font-size-base);
+}
+
+/* Estados de éxito */
+.form-field__input[aria-invalid="false"],
+.form-field__select[aria-invalid="false"],
+.form-field__textarea[aria-invalid="false"] {
+    border-color: var(--color-success);
+}
+
+/* Descripción de campos para screen readers */
+.form-field__description {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    margin-top: var(--spacing-xs);
+    margin-bottom: 0;
+}
+
+/* Aria-live region para anuncios */
+.formulario-contacto__announce {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* =============================================
+   PASO 11: MICRO-INTERACCIONES Y POLISH
+   Formulario de Contacto - GMK Seguros
+   ============================================= */
+
+/* ============================================
+   ANIMACIÓN DE ENTRADA DE LA SECCIÓN
+   ============================================ */
+
+.formulario-contacto {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation para elementos internos */
+.formulario-contacto__content > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.formulario-contacto__content > *:nth-child(1) { animation-delay: 0.1s; }
+.formulario-contacto__content > *:nth-child(2) { animation-delay: 0.2s; }
+.formulario-contacto__content > *:nth-child(3) { animation-delay: 0.3s; }
+
+.formulario-contacto__sidebar {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   MICRO-INTERACCIONES EN CAMPOS
+   ============================================ */
+
+/* Iconos animados en inputs (opcional) */
+.form-field {
+    position: relative;
+}
+
+.form-field--with-icon .form-field__input {
+    padding-left: calc(var(--spacing-xl) + var(--spacing-lg));
+}
+
+.form-field__icon {
+    position: absolute;
+    left: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-light);
+    transition: all var(--transition-base);
+    pointer-events: none;
+}
+
+.form-field__input:focus ~ .form-field__icon,
+.form-field__input:not(:placeholder-shown) ~ .form-field__icon {
+    color: var(--color-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Efecto de flotación en labels (opcional futuro) */
+.form-field--floating .form-field__label {
+    position: absolute;
+    left: var(--spacing-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-white);
+    padding: 0 var(--spacing-xs);
+    transition: all var(--transition-base);
+    pointer-events: none;
+}
+
+.form-field--floating .form-field__input:focus ~ .form-field__label,
+.form-field--floating .form-field__input:not(:placeholder-shown) ~ .form-field__label {
+    top: 0;
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+}
+
+/* ============================================
+   EFECTOS EN EL BOTÓN SUBMIT
+   ============================================ */
+
+.btn--submit {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de onda al click */
+.btn--submit::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn--submit:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Efecto de pulso sutil en hover */
+.btn--submit:hover {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(74, 20, 140, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(74, 20, 140, 0.5);
+    }
+}
+
+/* Estado de éxito del botón */
+.btn--submit.is-success {
+    background: linear-gradient(135deg, var(--color-success) 0%, #4CAF50 100%);
+    pointer-events: none;
+}
+
+.btn--submit.is-success .btn__text::before {
+    content: '✓ ';
+    margin-right: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   INTERACCIONES EN INFO BOXES
+   ============================================ */
+
+.info-box {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de brillo en hover */
+.info-box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transform: rotate(30deg) translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.info-box:hover::after {
+    transform: rotate(30deg) translateX(100%);
+}
+
+/* Efecto de escala sutil */
+.info-box:hover {
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* ============================================
+   CHECKBOX ANIMADO
+   ============================================ */
+
+.form-field__checkbox-label::after {
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-field__checkbox:checked + .form-field__checkbox-label::after {
+    animation: checkBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes checkBounce {
+    0% {
+        transform: scale(0) rotate(45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(45deg);
+    }
+    100% {
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+/* ============================================
+   EFECTO DE CARGA EN FORMULARIO
+   ============================================ */
+
+.form-contacto.is-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.form-contacto.is-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    border-radius: var(--border-radius-lg);
+    z-index: 10;
+}
+
+.form-contacto.is-loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--color-primary-lighter);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 11;
+}
+
+/* ============================================
+   TOOLTIPS Y MENSAJES FLOTANTES
+   ============================================ */
+
+.form-field__tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-fast);
+    pointer-events: none;
+    margin-bottom: var(--spacing-xs);
+}
+
+.form-field__tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: var(--spacing-md);
+    border: 6px solid transparent;
+    border-top-color: var(--color-primary);
+}
+
+.form-field__input:focus ~ .form-field__tooltip {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   EFECTO DE CONFETTI EN ÉXITO (CSS only)
+   ============================================ */
+
+.form-contacto.is-success {
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: var(--box-shadow-lg);
+    }
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 20px 60px rgba(46, 125, 50, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: var(--box-shadow-lg);
+    }
+}
+
+/* ============================================
+   HOVER EFFECTS ADICIONALES
+   ============================================ */
+
+/* Sombra dinámica en el formulario */
+.form-contacto {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.form-contacto:hover {
+    transform: translateY(-2px);
+}
+
+/* Efecto de borde brillante en focus del formulario */
+.form-contacto:focus-within {
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 4px rgba(74, 20, 140, 0.1), var(--box-shadow-lg);
+}
+
+/* Transición suave para el aside en scroll */
+@media (min-width: 1024px) {
+    .formulario-contacto__sidebar {
+        transition: top var(--transition-base);
+    }
+}
+
+/* ============================================
+   FIN DEL PASO 11 - CSS COMPLETO
+   ============================================= */
