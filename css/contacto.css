@@ -1,0 +1,337 @@
+/* ---------------------------------------------
+   HERO DE PÁGINA - CONTACTO
+   Diseño premium con atención al detalle
+   --------------------------------------------- */
+
+.page-hero {
+    /* Layout */
+    padding: var(--spacing-3xl) 0;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    /* Fondo con degradado dinámico */
+    background-color: var(--color-primary);
+    background-image: radial-gradient(circle at 10% 20%, rgba(123, 31, 162, 0.4) 0%, rgba(74, 20, 140, 0.85) 90%),
+                      url('https://via.placeholder.com/1920x1080/4A148C/FFFFFF?text=GMK+Seguros');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    
+    /* Color base */
+    color: var(--color-white);
+    
+    /* Transiciones suaves */
+    transition: all var(--transition-base);
+}
+
+/* Elemento decorativo de fondo - patrón sutil */
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="white" d="M10,50 L90,50 M50,10 L50,90 M30,30 L70,70 M70,30 L30,70" stroke="white" stroke-width="1"/><circle cx="50" cy="50" r="8" fill="white"/></svg>');
+    background-repeat: repeat;
+    background-size: 40px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Contenido principal con z-index elevado */
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Breadcrumb - Navegación elegante */
+.breadcrumb {
+    margin-bottom: var(--spacing-xl);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.breadcrumb__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb__item {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.02em;
+}
+
+.breadcrumb__item:not(:last-child)::after {
+    content: '/';
+    margin-left: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: var(--font-weight-light);
+}
+
+.breadcrumb__link {
+    color: var(--color-white);
+    transition: color var(--transition-fast);
+    text-decoration: none;
+}
+
+.breadcrumb__link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.breadcrumb__item[aria-current="page"] {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Contenido principal del hero */
+.page-hero__content {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+/* Título con efecto degradado */
+.page-hero__title {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-white);
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-hero__title-accent {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-accent) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Subtítulo con mejor legibilidad */
+.page-hero__subtitle {
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    max-width: 650px;
+    margin: 0 auto var(--spacing-xl) auto;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: var(--font-weight-regular);
+}
+
+/* Badges de contacto rápido - Diseño moderno */
+.page-hero__contact-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.contact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.01em;
+}
+
+.contact-badge:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-badge:active {
+    transform: translateY(0);
+}
+
+.contact-badge--whatsapp:hover {
+    background-color: var(--color-whatsapp);
+    border-color: var(--color-whatsapp);
+}
+
+.contact-badge span[aria-hidden="true"] {
+    font-size: 1.2em;
+    transition: transform var(--transition-fast);
+}
+
+.contact-badge:hover span[aria-hidden="true"] {
+    transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ---------------------------------------------
+   RESPONSIVIDAD - Mobile First Mejorado
+   --------------------------------------------- */
+
+/* Tablet (768px y superior) */
+@media (min-width: 768px) {
+    .page-hero {
+        min-height: 55vh;
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .page-hero__title {
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .page-hero__subtitle {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .breadcrumb__item {
+        font-size: var(--font-size-base);
+    }
+    
+    .contact-badge {
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Desktop (1024px y superior) */
+@media (min-width: 1024px) {
+    .page-hero {
+        min-height: 65vh;
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    .page-hero__title {
+        font-size: 4rem; /* 64px */
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .page-hero__subtitle {
+        font-size: var(--font-size-xl);
+        max-width: 700px;
+    }
+    
+    .page-hero__contact-badges {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Desktop Grande (1280px y superior) */
+@media (min-width: 1280px) {
+    .page-hero {
+        min-height: 70vh;
+    }
+    
+    .page-hero__title {
+        font-size: 4.5rem; /* 72px */
+    }
+    
+    .page-hero__subtitle {
+        font-size: 1.5rem; /* 24px */
+    }
+}
+
+/* ---------------------------------------------
+   MODO OSCURO - Respeto por preferencias del usuario
+   --------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+    .page-hero {
+        background-color: var(--color-primary-dark, #2c0b44);
+    }
+    
+    .contact-badge {
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+    }
+}
+
+/* ---------------------------------------------
+   ACCESIBILIDAD - Reduce Motion
+   --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .page-hero__content,
+    .breadcrumb,
+    .page-hero__contact-badges,
+    .contact-badge,
+    .page-hero__title-accent {
+        animation: none;
+        transition: none;
+    }
+    
+    .contact-badge:hover {
+        transform: none;
+    }
+}
+
+/* ---------------------------------------------
+   SOPORTE PARA NAVEGADORES ANTIGUOS
+   --------------------------------------------- */
+@supports not (backdrop-filter: blur(8px)) {
+    .contact-badge {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Asegurar que el texto sea legible en todos los dispositivos */
+@media (max-width: 480px) {
+    .page-hero__title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .page-hero__subtitle {
+        font-size: var(--font-size-base);
+    }
+    
+    .contact-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}
