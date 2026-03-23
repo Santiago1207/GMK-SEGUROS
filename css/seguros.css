@@ -775,3 +775,577 @@
     border-radius: var(--border-radius-full);
     opacity: 0.7;
 }
+
+/*=============================================
+   PASO 1: ESTRUCTURA DEL CONTENEDOR Y SECCIÓN
+   ============================================= */
+
+.section-padding {
+    padding-top: var(--spacing-2xl);
+    padding-bottom: var(--spacing-2xl);
+}
+
+/* En desktop aumentamos el respiro visual */
+@media (min-width: 768px) {
+    .section-padding {
+        padding-top: var(--spacing-3xl);
+        padding-bottom: var(--spacing-3xl);
+    }
+}
+
+.category-group {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.category-group:last-child {
+    margin-bottom: 0;
+}
+/* =============================================
+   PASO 2: TÍTULOS DE GRUPO Y ENCABEZADO
+   ============================================= */
+
+/* Encabezado principal de la sección */
+.section-header {
+    max-width: 700px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.section-header .badge {
+    display: inline-block;
+    background-color: var(--color-primary-lighter);
+    color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-header h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-header p {
+    font-size: var(--font-size-md);
+    color: var(--color-text-medium);
+}
+
+/* Títulos de categorías (subgrupos) */
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-xl);
+    color: var(--color-text-dark);
+    border-bottom: 2px solid var(--color-background-light);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* =============================================
+   PASO 3: GRID SYSTEM RESPONSIVO
+   ============================================= */
+
+.grid-cards {
+    display: grid;
+    /* Crea columnas de mínimo 280px que se ajustan solas al contenedor */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    
+    /* Espaciado inferior para separar del siguiente grupo */
+    margin-bottom: var(--spacing-2xl);
+}
+
+/* Ajuste de gap para pantallas más grandes (Desktop) */
+@media (min-width: 1024px) {
+    .grid-cards {
+        gap: var(--spacing-xl);
+    }
+}
+
+/* =============================================
+   PASO 4: ANATOMÍA DE LA TARJETA
+   ============================================= */
+
+.insurance-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineación a la izquierda para mejor lectura */
+    height: 100%; /* Para que todas las tarjetas midan lo mismo en la misma fila */
+    box-shadow: var(--box-shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil para definir la forma */
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+/* =============================================
+   PASO 5: ESTILO DEL ICONO / AVATAR
+   ============================================= */
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primary-lighter);
+    border-radius: var(--border-radius-md); /* Un radio suavizado para un look moderno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Tamaño para el emoji/icono */
+    margin-bottom: var(--spacing-lg);
+    transition: background-color var(--transition-base), transform var(--transition-base);
+    
+    /* Para asegurar que el icono no se deforme */
+    flex-shrink: 0;
+}
+
+/* Variante circular si prefieres un estilo más orgánico */
+/* .card-icon { border-radius: var(--border-radius-full); } */
+
+/* =============================================
+   PASO 6: TIPOGRAFÍA INTERNA (JERARQUÍA)
+   ============================================= */
+
+.insurance-card h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary); /* Reforzamos el branding en el título */
+    font-size: var(--font-size-lg);
+    line-height: 1.3;
+    font-weight: var(--font-weight-bold);
+}
+
+.insurance-card p {
+    color: var(--color-text-medium);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+    /* Flex-grow permite que el botón siempre quede al final si hay poco texto */
+    flex-grow: 1; 
+}
+
+/* =============================================
+   PASO 7: EL CTA "VER MÁS" (ENLACE DE ACCIÓN)
+   ============================================= */
+
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color var(--transition-fast);
+}
+
+.btn-text i.arrow-right {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    /* Usamos un pseudo-elemento o un borde para la flecha si no hay iconos */
+    border: solid currentcolor;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(-45deg);
+    transition: transform var(--transition-base);
+}
+
+.btn-text:hover {
+    color: var(--color-primary-light);
+}
+
+.btn-text:hover i.arrow-right {
+    transform: rotate(-45deg) translate(4px, 4px); /* Pequeño desplazamiento de la flecha */
+}
+
+.group-title i {
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+/* =============================================
+   PASO 7: EL CTA "VER MÁS" (ENLACE DE ACCIÓN)
+   ============================================= */
+
+.btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color var(--transition-fast);
+}
+
+.btn-text i.arrow-right {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    /* Usamos un pseudo-elemento o un borde para la flecha si no hay iconos */
+    border: solid currentcolor;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(-45deg);
+    transition: transform var(--transition-base);
+}
+
+.btn-text:hover {
+    color: var(--color-primary-light);
+}
+
+.btn-text:hover i.arrow-right {
+    transform: rotate(-45deg) translate(4px, 4px); /* Pequeño desplazamiento de la flecha */
+}
+
+/* =============================================
+   PASO 1: PREPARACIÓN DEL CANVAS (BACKGROUND DINÁMICO)
+   ============================================= */
+
+/* Contenedor relativo para posicionar los elementos decorativos */
+#categorias-seguros {
+    position: relative;
+    overflow: hidden; /* Evita que las esferas generen scroll lateral */
+    background-color: var(--color-background-main);
+    z-index: 1;
+}
+
+/* Elementos decorativos de fondo (Blobs) */
+#categorias-seguros::before,
+#categorias-seguros::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: var(--border-radius-full);
+    filter: blur(80px); /* Desenfoque fuerte para suavizar los bordes */
+    z-index: -1; /* Se sitúan detrás del contenido */
+    opacity: 0.15; /* Opacidad sutil para no distraer del texto */
+}
+
+/* Esfera Morada (Top-Right) */
+#categorias-seguros::before {
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle, var(--color-primary), transparent);
+}
+
+/* Esfera Dorada (Bottom-Left) */
+#categorias-seguros::after {
+    bottom: -100px;
+    left: -100px;
+    background: radial-gradient(circle, var(--color-accent), transparent);
+}
+
+/* =============================================
+   PASO 2: ANIMACIÓN DE LAS FORMAS DE FONDO
+   ============================================= */
+
+@keyframes float-blob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Aplicamos la animación a las esferas creadas en el Paso 1 */
+#categorias-seguros::before {
+    animation: float-blob 20s infinite ease-in-out;
+}
+
+#categorias-seguros::after {
+    animation: float-blob 25s infinite ease-in-out reverse;
+    animation-delay: -5s; /* Desfase para que no se muevan en sintonía */
+}
+
+/* Reducimos la intensidad en móviles para ahorrar batería/CPU */
+@media (max-width: 768px) {
+    #categorias-seguros::before,
+    #categorias-seguros::after {
+        width: 250px;
+        height: 250px;
+        filter: blur(50px);
+        opacity: 0.1;
+    }
+}
+
+/* =============================================
+   PASO 3: TRANSFORMACIÓN A GLASSMORPHISM
+   ============================================= */
+
+.insurance-card {
+    /* Fondo semi-transparente */
+    background: rgba(255, 255, 255, 0.7); 
+    
+    /* El efecto de desenfoque del fondo (Glassmorphism) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+    
+    /* Borde sutil que simula el grosor del vidrio */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    /* Reajustamos la sombra para que sea más etérea */
+    box-shadow: 0 8px 32px 0 rgba(74, 20, 140, 0.08);
+    
+    /* Aseguramos que el contenido destaque sobre el vidrio */
+    z-index: 2;
+}
+
+/* Ajuste para que el fondo de la sección no sea totalmente blanco */
+#categorias-seguros {
+    background-color: #f0f2f5; /* Un gris muy suave que hace resaltar el blanco del vidrio */
+}
+
+/* =============================================
+   PASO 4: EL BORDE DE LUZ (BORDER GRADIENT)
+   ============================================= */
+
+.insurance-card {
+    position: relative;
+    /* Eliminamos el borde estándar del paso anterior para usar esta técnica */
+    border: none; 
+    padding: calc(var(--spacing-xl) + 1px); /* Compensamos el grosor del borde */
+}
+
+/* Creamos el "borde de luz" mediante un pseudo-elemento */
+.insurance-card::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Ocupa todo el espacio */
+    border-radius: var(--border-radius-lg);
+    padding: 1.5px; /* Este será el grosor del borde */
+    
+    /* Degradado que simula luz pegando en la esquina superior izquierda */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(255, 255, 255, 0.1) 40%, 
+        rgba(74, 20, 140, 0.1) 100%
+    );
+    
+    /* Recortamos el fondo del pseudo-elemento para que solo se vea en el borde */
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Aseguramos que el contenido esté por encima del borde */
+.insurance-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* =============================================
+   PASO 5: GLOW AL HOVER (RESPLANDOR EXTERNO)
+   ============================================= */
+
+.insurance-card {
+    /* Preparamos la transición para que el brillo sea suave */
+    transition: 
+        transform var(--transition-base), 
+        box-shadow var(--transition-slow),
+        background-color var(--transition-base);
+}
+
+.insurance-card:hover {
+    /* Elevación sutil */
+    transform: translateY(-10px) scale(1.02);
+    
+    /* Fondo un poco más sólido al interactuar para mejorar contraste */
+    background: rgba(255, 255, 255, 0.85);
+    
+    /* El Efecto Glow: 
+       1. Sombra profunda para profundidad.
+       2. Resplandor difuso con el color primario (morado).
+    */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 25px rgba(74, 20, 140, 0.2); /* Glow morado suave */
+}
+
+/* En el hover, el borde de luz (creado en el paso 4) también se intensifica */
+.insurance-card:hover::before {
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 1) 0%, 
+        var(--color-primary-lighter) 50%, 
+        var(--color-accent) 100%
+    );
+    opacity: 0.8;
+}
+
+/* =============================================
+   PASO 6: REFINAMIENTO DEL ICONO (GLASS-ICON)
+   ============================================= */
+
+.card-icon {
+    /* Fondo semi-transparente basado en el color lavanda corporativo */
+    background: rgba(179, 157, 219, 0.25); 
+    
+    /* Desenfoque interno para el icono */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    /* Borde fino para dar definición al contenedor del icono */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    
+    /* Sombra interna sutil para dar profundidad */
+    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    
+    color: var(--color-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brillo reflejado sobre el icono */
+.card-icon::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: transform 0.6s ease;
+}
+
+/* Al pasar el mouse por la tarjeta, el brillo cruza el icono */
+.insurance-card:hover .card-icon::after {
+    transform: rotate(45deg) translate(20%, 20%);
+}
+
+.insurance-card:hover .card-icon {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 5px 15px rgba(74, 20, 140, 0.3);
+}
+
+/* =============================================
+   PASO 7: MICRO-INTERACCIÓN DE TÍTULO Y CTA
+   ============================================= */
+
+/* Animación de contraste para el título */
+.insurance-card h4 {
+    transition: color var(--transition-base), transform var(--transition-base);
+    letter-spacing: -0.01em;
+}
+
+.insurance-card:hover h4 {
+    color: var(--color-black); /* Un negro más profundo para máximo contraste sobre el vidrio */
+    transform: translateX(4px); /* Pequeño empuje hacia la derecha */
+}
+
+/* El CTA "Ver más" con efecto de deslizamiento */
+.btn-text {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-xs) 0;
+    transition: all var(--transition-base);
+}
+
+/* Línea decorativa que aparece al hacer hover */
+.btn-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent); /* Color dorado para resaltar la acción */
+    transition: width var(--transition-base);
+}
+
+.insurance-card:hover .btn-text {
+    color: var(--color-primary-light);
+}
+
+.insurance-card:hover .btn-text::after {
+    width: 100%; /* La línea se expande de izquierda a derecha */
+}
+
+/* Animación de la flecha: un pequeño rebote infinito mientras el mouse está encima */
+@keyframes arrow-bounce {
+    0%, 100% { transform: rotate(-45deg) translate(0, 0); }
+    50% { transform: rotate(-45deg) translate(5px, 5px); }
+}
+
+.insurance-card:hover .btn-text i.arrow-right {
+    animation: arrow-bounce 0.8s infinite ease-in-out;
+    border-color: var(--color-accent);
+}
+
+/* =============================================
+   PASO 8: OPTIMIZACIÓN DE RENDIMIENTO (GPU)
+   ============================================= */
+
+.insurance-card,
+.card-icon,
+.insurance-card::before,
+#categorias-seguros::before,
+#categorias-seguros::after {
+    /* Forzamos el renderizado por GPU (Hardware Acceleration) */
+    will-change: transform, opacity, backdrop-filter;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0);
+}
+
+/* Optimización para dispositivos con ahorro de batería o menor potencia */
+@media (prefers-reduced-motion: reduce) {
+    .insurance-card:hover {
+        transform: none;
+    }
+    
+    #categorias-seguros::before,
+    #categorias-seguros::after {
+        animation: none;
+    }
+    
+    .insurance-card {
+        backdrop-filter: none; /* Quitamos el blur si el sistema pide ahorro */
+        background: var(--color-white);
+    }
+}
+
+/* Ajuste fino para Safari (Renderizado de bordes redondeados con blur) */
+.insurance-card {
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+/* Evitamos parpadeos en el hover de los textos */
+.insurance-card h4, 
+.insurance-card p, 
+.btn-text {
+    -webkit-font-smoothing: subpixel-antialiased;
+}
