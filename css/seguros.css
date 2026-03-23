@@ -1349,3 +1349,515 @@
 .btn-text {
     -webkit-font-smoothing: subpixel-antialiased;
 }
+
+/* =============================================
+   MODAL SEGURO DE VIDA - GMK SEGUROS
+   Versión mejorada — Mobile First · BEM · WCAG
+   ============================================= */
+
+/* ---------------------------------------------
+   1. OVERLAY DEL MODAL
+   --------------------------------------------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 5, 45, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: var(--spacing-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ---------------------------------------------
+   2. CONTENEDOR PRINCIPAL DEL MODAL
+   --------------------------------------------- */
+.modal-content {
+    background-color: var(--color-white);
+    border-radius: 20px;
+    box-shadow:
+        0 32px 64px rgba(74, 20, 140, 0.22),
+        0 8px 20px rgba(0, 0, 0, 0.12);
+    max-width: 580px;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalEntrada 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ---------------------------------------------
+   3. BOTÓN DE CERRAR
+   --------------------------------------------- */
+.modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    width: 34px;
+    height: 34px;
+    border-radius: var(--border-radius-full);
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    z-index: 10;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg);
+}
+
+.modal-close:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* ---------------------------------------------
+   4. HEADER DEL MODAL
+   --------------------------------------------- */
+.modal-header {
+    position: relative;
+    background: linear-gradient(140deg, #2D0B6B 0%, var(--color-primary) 50%, var(--color-primary-light) 100%);
+    padding: var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+    overflow: hidden;
+}
+
+/* Círculo decorativo superior derecho */
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 179, 0, 0.1);
+    pointer-events: none;
+}
+
+/* Círculo decorativo inferior izquierdo */
+.modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: -45px;
+    left: -45px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+/* Chip de categoría */
+.modal-header__chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 179, 0, 0.18);
+    border: 1px solid rgba(255, 179, 0, 0.42);
+    color: #FFD54F;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: var(--border-radius-full);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.modal-header__chip::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.8;
+}
+
+/* Ícono del seguro */
+.modal-header__icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 179, 0, 0.16);
+    border: 1.5px solid rgba(255, 179, 0, 0.38);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.modal-header__icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--color-accent);
+}
+
+.modal-header h2 {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-white);
+    letter-spacing: -0.025em;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+}
+
+.modal-header p {
+    font-size: var(--font-size-sm);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.76);
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------------------------------------------
+   5. CUERPO DEL MODAL
+   --------------------------------------------- */
+.modal-descripcion,
+.modal-beneficios {
+    padding: var(--spacing-xl) var(--spacing-xl) 0;
+}
+
+/* Etiqueta de sección */
+.modal-descripcion h3,
+.modal-beneficios h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Barra vertical dorada antes del label */
+.modal-descripcion h3::before,
+.modal-beneficios h3::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+/* Subtítulo de cada sección */
+.modal-descripcion__titulo,
+.modal-beneficios__titulo {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.modal-descripcion p {
+    font-size: var(--font-size-sm);
+    line-height: 1.7;
+    color: var(--color-text-medium);
+    margin-bottom: 0;
+}
+
+/* Divisor entre secciones */
+.modal-divider {
+    border: none;
+    border-top: 1px dashed rgba(179, 157, 219, 0.4);
+    margin: var(--spacing-xl) var(--spacing-xl) 0;
+}
+
+/* ---------------------------------------------
+   6. GRILLA DE BENEFICIOS
+   --------------------------------------------- */
+.modal-beneficios__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: var(--spacing-md);
+    list-style: none;
+}
+
+.modal-beneficios__item {
+    background: var(--color-background-main);
+    border: 1px solid rgba(179, 157, 219, 0.28);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    animation: slideIn 0.45s ease-out forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.modal-beneficios__item:hover {
+    border-color: var(--color-primary-lighter);
+    box-shadow: 0 4px 14px rgba(74, 20, 140, 0.09);
+    transform: translateY(-2px);
+}
+
+/* Ícono por beneficio */
+.modal-beneficios__icono {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(74, 20, 140, 0.09), rgba(123, 31, 162, 0.14));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.modal-beneficios__icono svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--color-primary);
+}
+
+.modal-beneficios__texto {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--color-text-medium);
+    font-weight: var(--font-weight-regular);
+}
+
+/* Animaciones escalonadas de entrada */
+.modal-beneficios__item:nth-child(1) { animation-delay: 0.05s; }
+.modal-beneficios__item:nth-child(2) { animation-delay: 0.1s; }
+.modal-beneficios__item:nth-child(3) { animation-delay: 0.15s; }
+.modal-beneficios__item:nth-child(4) { animation-delay: 0.2s; }
+.modal-beneficios__item:nth-child(5) { animation-delay: 0.25s; }
+.modal-beneficios__item:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------------------
+   7. SECCIÓN CTA
+   --------------------------------------------- */
+.modal-cta {
+    padding: var(--spacing-lg) var(--spacing-xl) var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    background: linear-gradient(135deg, #F5F1FB 0%, #FFF8E7 100%);
+    border-top: 1px solid rgba(179, 157, 219, 0.28);
+    text-align: center;
+}
+
+.modal-cta__nota {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+}
+
+.modal-cta__nota strong {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Botón cotizar */
+.btn-cotizar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
+    font-family: var(--font-family-titles);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-base);
+    padding: 13px var(--spacing-2xl);
+    border-radius: var(--border-radius-full);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    box-shadow: 0 6px 22px rgba(74, 20, 140, 0.35);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cotizar svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+
+/* Efecto shimmer */
+.btn-cotizar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.18) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.55s ease;
+}
+
+.btn-cotizar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(74, 20, 140, 0.42);
+}
+
+.btn-cotizar:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-cotizar:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.btn-cotizar:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(74, 20, 140, 0.3);
+}
+
+/* Trust badges debajo del botón */
+.modal-cta__badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    list-style: none;
+}
+
+.modal-cta__badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--color-text-light);
+    line-height: 1;
+}
+
+.modal-cta__badge svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--color-primary-lighter);
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------
+   8. SCROLL PERSONALIZADO
+   --------------------------------------------- */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--color-primary-lighter);
+    border-radius: var(--border-radius-full);
+    opacity: 0.5;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-light);
+}
+
+/* ---------------------------------------------
+   9. RESPONSIVE
+   --------------------------------------------- */
+@media (min-width: 768px) {
+    .modal-header h2 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .modal-header p {
+        font-size: var(--font-size-base);
+    }
+
+    .btn-cotizar {
+        font-size: var(--font-size-md);
+        padding: 14px var(--spacing-3xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        border-radius: var(--border-radius-lg);
+    }
+
+    .modal-header,
+    .modal-descripcion,
+    .modal-beneficios,
+    .modal-cta {
+        padding: var(--spacing-lg);
+    }
+
+    .modal-divider {
+        margin: var(--spacing-lg) var(--spacing-lg) 0;
+    }
+
+    .modal-beneficios__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-cotizar {
+        width: 100%;
+        font-size: var(--font-size-base);
+    }
+
+    .modal-cta__badges {
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------------------------------------------
+   FIN DEL MODAL SEGURO DE VIDA
+   --------------------------------------------- */
