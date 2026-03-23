@@ -1703,3 +1703,316 @@
         margin-top: var(--spacing-3xl);
     }
 }
+
+/* =============================================
+   PASO 1: ESTRUCTURA DE CONTENEDORES (LAYOUT)
+   ============================================= */
+
+.cta-final {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #310d5f 100%);
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-final__content {
+    background: var(--color-white);
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-lg);
+    border-top: 8px solid var(--color-accent);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    
+    /* Grid Layout para las dos columnas */
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* 60% texto - 40% imagen */
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden; /* Para que la imagen no se salga si no queremos */
+}
+
+/* Ajuste Responsivo para el Layout */
+@media (max-width: var(--breakpoint-tablet)) {
+    .cta-final__content {
+        grid-template-columns: 1fr; /* Una sola columna en tablet/móvil */
+        text-align: center;
+        margin: 0 var(--spacing-md);
+    }
+}
+
+.cta-final__info {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+}
+
+.cta-final__visual {
+    position: relative;
+    height: 100%;
+    background: var(--color-background-light); /* Fondo suave para el área del asesor */
+    display: flex;
+    align-items: flex-end; /* La foto del asesor suele ir apoyada abajo */
+    justify-content: center;
+}
+
+@media (max-width: var(--breakpoint-tablet)) {
+    .cta-final__info {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .cta-final__visual {
+        height: 300px; /* Altura fija para la imagen en móvil */
+        order: -1; /* Opcional: poner la imagen arriba en móvil */
+    }
+}
+
+/* =============================================
+   PASO 2: TIPOGRAFÍA Y CONTENIDO DE TEXTO
+   ============================================= */
+
+.cta-final__title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.1;
+}
+
+.cta-final__text {
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+}
+
+/* Lista de beneficios (Bullets rápidos) */
+.cta-final__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+    text-align: left; /* Mantiene alineación a la izquierda incluso en móvil si prefieres */
+}
+
+.cta-final__benefit-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-text-dark);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+}
+
+.cta-final__icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* Ajuste de alineación para la lista en móvil */
+@media (max-width: var(--breakpoint-tablet)) {
+    .cta-final__benefits {
+        align-items: center; /* Centra los beneficios si el texto general está centrado */
+    }
+}
+
+/* =============================================
+   PASO 3: BOTONES Y MICRO-INTERACCIONES
+   ============================================= */
+
+.cta-final__buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-start; /* Alineado a la izquierda en desktop */
+    flex-wrap: wrap;
+}
+
+@media (max-width: var(--breakpoint-tablet)) {
+    .cta-final__buttons {
+        justify-content: center; /* Centrado en móviles */
+    }
+}
+
+/* --- BOTÓN PRINCIPAL (CON EFECTO SHINE) --- */
+.btn--primary {
+    position: relative;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 1.125rem 2.5rem;
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    transition: all var(--transition-base);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.2);
+    display: inline-block;
+}
+
+.btn--primary:hover {
+    transform: translateY(-4px);
+    background: var(--color-primary-light);
+    box-shadow: 0 8px 25px rgba(74, 20, 140, 0.3);
+}
+
+/* Efecto de brillo que cruza el botón */
+.btn--primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.6s;
+}
+
+.btn--primary:hover::after {
+    left: 100%;
+}
+
+/* --- BOTÓN WHATSAPP (LIGERO Y MODERNO) --- */
+.btn--whatsapp {
+    background: var(--color-white);
+    color: var(--color-whatsapp);
+    border: 2px solid var(--color-whatsapp);
+    padding: 1.125rem 2.2rem;
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-md);
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.btn--whatsapp:hover {
+    background: var(--color-whatsapp);
+    color: var(--color-white);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* =============================================
+   PASO 4: EL ÁREA VISUAL (ASESOR Y BADGE)
+   ============================================= */
+
+.cta-final__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: var(--spacing-xl);
+}
+
+.cta-final__image {
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+    /* Filtro sutil para que la imagen se vea más integrada */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    z-index: 1;
+}
+
+/* --- BADGE DE EXPERIENCIA --- */
+.cta-final__badge {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    background: var(--color-accent); /* Dorado para que destaque */
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 10px 25px rgba(255, 179, 0, 0.4);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    animation: floating 3s ease-in-out infinite; /* Animación de flotado suave */
+}
+
+.cta-final__badge-number {
+    font-family: var(--font-family-numbers);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.cta-final__badge-text {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* Animación para el badge */
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@media (max-width: var(--breakpoint-tablet)) {
+    .cta-final__badge {
+        top: 10%;
+        right: 20%;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+/* =============================================
+   PASO 6: CONTROL DE CALIDAD Y ACCESIBILIDAD
+   ============================================= */
+
+/* 1. Mejora del contraste para lectura en el Badge */
+.cta-final__badge-text {
+    letter-spacing: 0.05em; /* Mejora legibilidad en textos pequeños */
+}
+
+/* 2. Soporte para usuarios que prefieren reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .cta-final__content,
+    .cta-final__badge,
+    .btn--primary::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* 3. Indicador de foco claro para navegación por teclado (WCAG) */
+.cta-final__buttons .btn:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* 4. Optimización de carga: Evitar saltos de layout (CLS) */
+.cta-final__image {
+    aspect-ratio: auto;
+    width: 100%;
+    /* Previene que el contenedor colapse mientras carga la imagen */
+    min-height: 250px; 
+}
+
+/* 5. Ajuste de impresión: Para que el CTA no gaste tinta innecesaria */
+@media print {
+    .cta-final {
+        background: none !important;
+        color: var(--color-black) !important;
+        padding: 20px 0;
+    }
+    .cta-final__content {
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+    }
+    .cta-final__badge, .cta-final__visual {
+        display: none !important;
+    }
+}
