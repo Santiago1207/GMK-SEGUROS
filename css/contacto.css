@@ -1924,3 +1924,393 @@ Sección INFO DE CONTACTO
 /* ============================================
    FIN DEL PASO 11 - CSS COMPLETO
    ============================================= */
+
+   /* ---------------------------------------------
+   SECCIÓN REDES SOCIALES PREVIEW
+--------------------------------------------- */
+
+.redes-sociales-preview {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--color-background-light);
+}
+
+.redes-sociales-preview .container {
+    position: relative;
+}
+
+/* ---------------------------------------------
+   ENCABEZADO DE LA SECCIÓN
+--------------------------------------------- */
+
+.redes-sociales-preview .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto var(--spacing-2xl);
+}
+
+.redes-sociales-preview .section-title {
+    margin-bottom: var(--spacing-sm);
+}
+
+.redes-sociales-preview .section-subtitle {
+    font-size: var(--font-size-md);
+    color: var(--color-text-medium);
+}
+
+/* ---------------------------------------------
+   GRID PRINCIPAL DE TARJETAS
+--------------------------------------------- */
+
+.redes-sociales-preview__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+}
+
+/* ---------------------------------------------
+   TARJETA BASE
+--------------------------------------------- */
+
+.red-preview-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-sm);
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+}
+
+/* ---------------------------------------------
+   ENLACE QUE ENVUELVE TODA LA TARJETA
+--------------------------------------------- */
+
+.red-preview-card__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ---------------------------------------------
+   ICONO DE RED SOCIAL
+--------------------------------------------- */
+
+.red-preview-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--border-radius-full);
+    background-color: var(--color-primary-lighter);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------
+   NOMBRE DE LA RED Y HANDLE
+--------------------------------------------- */
+
+.red-preview-card__nombre {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+    color: var(--color-text-dark);
+}
+
+.red-preview-card__handle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+/* ---------------------------------------------
+   CONTENEDOR DEL PREVIEW (MEDIA + TEXTO)
+--------------------------------------------- */
+
+.red-preview-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+/* ---------------------------------------------
+   CONTENEDOR DE MEDIA (IMAGEN / VIDEO)
+--------------------------------------------- */
+
+.red-preview-card__media {
+    width: 100%;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    background-color: var(--color-background-light);
+    position: relative;
+}
+
+/* ---------------------------------------------
+   IMÁGENES DE PREVIEW
+--------------------------------------------- */
+
+.red-preview-card__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* ---------------------------------------------
+   ESTILO PARA TARJETA DE VIDEO (YOUTUBE)
+--------------------------------------------- */
+
+.red-preview-card__media--video {
+    position: relative;
+}
+
+.red-preview-card__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--font-size-2xl);
+    color: var(--color-white);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: var(--border-radius-full);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------------------------------------------
+   BLOQUE DE TEXTO DEL PREVIEW
+--------------------------------------------- */
+
+.red-preview-card__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.red-preview-card__label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+.red-preview-card__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-medium);
+    margin: 0;
+}
+
+/* ---------------------------------------------
+   CTA DE LA TARJETA
+--------------------------------------------- */
+
+.red-preview-card__cta {
+    display: block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    border-top: 1px solid var(--color-background-light);
+    transition: color var(--transition-base), background-color var(--transition-base);
+}
+
+/* ---------------------------------------------
+   ANIMACIÓN HOVER DE TARJETAS
+--------------------------------------------- */
+
+.red-preview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.red-preview-card:hover .red-preview-card__cta {
+    color: var(--color-accent);
+}
+
+/* ---------------------------------------------
+   VARIACIONES VISUALES POR RED SOCIAL
+--------------------------------------------- */
+
+.red-preview-card--facebook .red-preview-card__icon {
+    background-color: rgba(24, 119, 242, 0.1);
+}
+
+.red-preview-card--instagram .red-preview-card__icon {
+    background-color: rgba(225, 48, 108, 0.1);
+}
+
+.red-preview-card--linkedin .red-preview-card__icon {
+    background-color: rgba(10, 102, 194, 0.1);
+}
+
+.red-preview-card--youtube .red-preview-card__icon {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* ---------------------------------------------
+   FOOTER DE LA SECCIÓN REDES
+--------------------------------------------- */
+
+.redes-sociales-preview__footer {
+    text-align: center;
+    margin-top: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.redes-sociales-preview__footer-text {
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: var(--font-size-md);
+    color: var(--color-text-medium);
+}
+
+/* ---------------------------------------------
+   BOTONES DEL FOOTER
+--------------------------------------------- */
+
+.redes-sociales-preview__actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------------------
+   RESPONSIVE - GRID EN MÓVIL
+--------------------------------------------- */
+
+@media (max-width: 768px) {
+    .redes-sociales-preview__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------------------
+   AJUSTES DE ESPACIADO PARA MÓVIL
+--------------------------------------------- */
+
+@media (max-width: 768px) {
+    .redes-sociales-preview {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .red-preview-card__header {
+        padding: var(--spacing-md);
+    }
+
+    .red-preview-card__content {
+        padding: 0 var(--spacing-md) var(--spacing-md);
+    }
+
+    .red-preview-card__cta {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+/* ---------------------------------------------
+   HEADER DE LA TARJETA
+--------------------------------------------- */
+
+.red-preview-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-background-light);
+}
+
+.red-preview-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+/* ---------------------------------------------
+   ESTILOS PARA CITAS (LINKEDIN)
+--------------------------------------------- */
+
+.red-preview-card__quote {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.4;
+    color: var(--color-text-dark);
+    margin: 0;
+    padding: var(--spacing-lg);
+    background-color: var(--color-background-light);
+    border-left: 4px solid var(--color-primary-light);
+    quotes: "“" "”" "‘" "’";
+}
+
+.red-preview-card__quote::before {
+    content: "“";
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-light);
+    margin-right: var(--spacing-xs);
+}
+
+.red-preview-card__quote::after {
+    content: "”";
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-light);
+    margin-left: var(--spacing-xs);
+    vertical-align: top;
+}
+
+/* ---------------------------------------------
+   BOTONES GLOBALES
+--------------------------------------------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-xl);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius-full);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+/* Botón primario */
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+}
+
+/* Botón secundario */
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+    background-color: rgba(74, 20, 140, 0.05);
+    transform: translateY(-2px);
+}
