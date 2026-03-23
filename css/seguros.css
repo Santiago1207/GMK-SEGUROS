@@ -1,0 +1,777 @@
+/* ---------------------------------------------
+   HERO SECTION - PASO 1: ESTRUCTURA BASE
+   --------------------------------------------- */
+.hero {
+    width: 100%;
+    background-color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    min-height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Efecto de fondo sutil (opcional, podemos ajustarlo después) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 100% 0%, var(--color-primary-lighter) 0%, transparent 50%);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Ajustes específicos para móvil */
+@media (max-width: 767px) {
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+}
+
+/* Ajustes para desktop */
+@media (min-width: 1024px) {
+    .hero {
+        padding: var(--spacing-3xl) 0;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* ---------------------------------------------
+   HERO SECTION - PASO 2: LAYOUT
+   --------------------------------------------- */
+.hero__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.hero__content {
+    max-width: 100%;
+    text-align: center;
+}
+
+.hero__visual {
+    display: none; /* Oculto en móvil inicialmente */
+}
+
+.hero__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero__container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .hero__content {
+        text-align: left;
+        max-width: 600px;
+    }
+    
+    .hero__visual {
+        display: block;
+        position: relative;
+    }
+    
+    .hero__grid {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .hero__container {
+        gap: var(--spacing-2xl);
+    }
+    
+    .hero__content {
+        max-width: 650px;
+    }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1280px) {
+    .hero__container {
+        gap: var(--spacing-3xl);
+    }
+}
+
+/* ---------------------------------------------
+   HERO SECTION - PASO 3: ESTILOS DEL TÍTULO
+   --------------------------------------------- */
+.hero__title {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-3xl); /* 40px mobile */
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.hero__title br {
+    display: none; /* Ocultamos el salto de línea en móvil */
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero__title {
+        font-size: 3.5rem; /* 56px */
+        line-height: 1.1;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero__title br {
+        display: inline; /* Mostramos el salto de línea en desktop */
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .hero__title {
+        font-size: 4rem; /* 64px */
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1280px) {
+    .hero__title {
+        font-size: 4.5rem; /* 72px */
+    }
+}
+
+/* Efecto sutil de gradiente en la primera línea (opcional) */
+.hero__title span {
+    display: block;
+    color: var(--color-text-dark);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Si queremos un efecto de gradiente en la palabra "mañana" */
+.hero__title strong {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-extrabold);
+}
+
+/* ---------------------------------------------
+   HERO SECTION - PASO 4: ESTILOS DEL SUBTÍTULO
+   --------------------------------------------- */
+.hero__subtitle {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-md); /* 18px mobile */
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-xl);
+    max-width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero__subtitle {
+        font-size: var(--font-size-lg); /* 20px */
+        line-height: 1.5;
+        margin-bottom: var(--spacing-2xl);
+        max-width: 90%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .hero__subtitle {
+        font-size: 1.375rem; /* 22px */
+        max-width: 85%;
+        margin-bottom: var(--spacing-2xl);
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1280px) {
+    .hero__subtitle {
+        font-size: 1.5rem; /* 24px */
+        max-width: 80%;
+        line-height: 1.4;
+    }
+}
+
+/* Pequeño detalle decorativo: línea delgada debajo del subtítulo (opcional) */
+.hero__subtitle::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-primary-light));
+    margin-top: var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+}
+
+/* En móvil centramos la línea decorativa */
+@media (max-width: 767px) {
+    .hero__subtitle::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Si preferimos quitar la línea decorativa, comentamos el bloque anterior */
+
+/* ---------------------------------------------
+   HERO SECTION - PASO 5: ESTILOS DE BOTONES
+   --------------------------------------------- */
+.hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Estilos base para ambos botones */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    text-align: center;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+    width: 100%;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+/* Botón primario - CTA principal */
+.btn--primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-dark);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.btn--primary:hover,
+.btn--primary:focus {
+    background-color: #FFA000; /* Versión más oscura del dorado */
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.btn--primary:active {
+    transform: translateY(0);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* Botón secundario - outline */
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary-light);
+}
+
+.btn--secondary:hover,
+.btn--secondary:focus {
+    background-color: var(--color-primary-lighter);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.btn--secondary:active {
+    transform: translateY(0);
+    background-color: var(--color-primary-lighter);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero__actions {
+        flex-direction: row;
+        max-width: 100%;
+        margin: 0;
+        gap: var(--spacing-md);
+    }
+    
+    .btn {
+        width: auto;
+        min-width: 180px;
+        padding: var(--spacing-md) var(--spacing-xl);
+        font-size: var(--font-size-md); /* 18px */
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .btn {
+        min-width: 200px;
+        padding: var(--spacing-lg) var(--spacing-2xl);
+        font-size: 1.125rem; /* 18px */
+    }
+    
+    .hero__actions {
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Estado de enfoque para accesibilidad */
+.btn:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+/* Efecto de icono en botones (opcional - si queremos añadir iconos después) */
+.btn--primary::before,
+.btn--secondary::before {
+    font-size: 1.2em;
+    margin-right: var(--spacing-sm);
+    transition: transform var(--transition-fast);
+}
+
+/* Si queremos un efecto sutil en hover del icono */
+.btn:hover::before {
+    transform: translateX(-2px);
+}
+
+/* ---------------------------------------------
+   HERO SECTION - PASO 6: ELEMENTO VISUAL (ICONOS)
+   --------------------------------------------- */
+.hero__visual {
+    position: relative;
+    display: none; /* Se activa en desktop desde paso 2 */
+}
+
+.hero__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.hero__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-background-light) 100%);
+    border-radius: var(--border-radius-lg);
+    font-size: 3rem; /* 48px */
+    box-shadow: var(--box-shadow-md);
+    transition: all var(--transition-base);
+    position: relative;
+    border: 1px solid rgba(74, 20, 140, 0.1); /* #4A148C con opacidad */
+}
+
+/* Efecto hover en los iconos */
+.hero__icon:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--box-shadow-lg);
+    border-color: var(--color-primary-lighter);
+}
+
+/* Colores específicos para cada icono (opcional - para dar variedad) */
+.hero__icon:nth-child(1) { /* 🛡️ Escudo */
+    background: linear-gradient(135deg, #FFFFFF 0%, #E8EAF6 100%);
+}
+.hero__icon:nth-child(2) { /* ⚡ Rayo */
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF8E1 100%);
+}
+.hero__icon:nth-child(3) { /* 🏠 Casa */
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0F2F1 100%);
+}
+.hero__icon:nth-child(4) { /* ❤️ Corazón */
+    background: linear-gradient(135deg, #FFFFFF 0%, #FCE4EC 100%);
+}
+
+/* Efecto de brillo sutil en la esquina */
+.hero__icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    border-radius: var(--border-radius-lg);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Elementos decorativos de fondo */
+.hero__visual::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--color-primary-lighter) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: 1;
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero__visual::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.15;
+    z-index: 1;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+/* Animación de flotación */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+/* Ajustes específicos para tablet/desktop */
+@media (min-width: 768px) {
+    .hero__grid {
+        gap: var(--spacing-xl);
+    }
+    
+    .hero__icon {
+        font-size: 3.5rem; /* 56px */
+        box-shadow: var(--box-shadow-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero__icon {
+        font-size: 4rem; /* 64px */
+    }
+    
+    .hero__visual::before {
+        width: 250px;
+        height: 250px;
+        top: -30px;
+        right: -30px;
+    }
+    
+    .hero__visual::after {
+        width: 300px;
+        height: 300px;
+        bottom: -40px;
+        left: -40px;
+    }
+}
+
+/* Efecto de pulso sutil en los iconos al cargar la página (opcional) */
+@keyframes subtlePulse {
+    0% {
+        box-shadow: var(--box-shadow-md);
+    }
+    50% {
+        box-shadow: 0 15px 30px rgba(74, 20, 140, 0.15);
+    }
+    100% {
+        box-shadow: var(--box-shadow-md);
+    }
+}
+
+.hero__icon {
+    animation: subtlePulse 4s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.2s);
+}
+
+/* Asignamos delays diferentes a cada icono */
+.hero__icon:nth-child(1) { --i: 1; }
+.hero__icon:nth-child(2) { --i: 2; }
+.hero__icon:nth-child(3) { --i: 3; }
+.hero__icon:nth-child(4) { --i: 4; }
+
+/* ---------------------------------------------
+   HERO SECTION - PASO 7: MEDIA QUERIES Y AJUSTES FINALES
+   --------------------------------------------- */
+
+/* Ajustes para móvil pequeño (hasta 480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .hero__title {
+        font-size: 2rem; /* 32px */
+    }
+    
+    .hero__subtitle {
+        font-size: var(--font-size-base); /* 16px */
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero__subtitle::after {
+        width: 60px;
+        margin-top: var(--spacing-md);
+    }
+    
+    .btn {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-sm); /* 14px */
+        white-space: normal; /* Permitir texto en múltiples líneas si es necesario */
+        min-width: unset;
+    }
+}
+
+/* Ajustes para móvil (481px - 767px) - refinamientos */
+@media (min-width: 481px) and (max-width: 767px) {
+    .hero__title {
+        font-size: 2.5rem; /* 40px */
+    }
+    
+    .hero__actions {
+        max-width: 350px;
+    }
+}
+
+/* Tablet (768px - 1023px) - refinamientos */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+        min-height: 500px;
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .hero__title {
+        font-size: 3rem; /* 48px */
+    }
+    
+    .hero__subtitle {
+        font-size: 1.125rem; /* 18px */
+        max-width: 100%;
+    }
+    
+    .hero__grid {
+        gap: var(--spacing-md);
+    }
+    
+    .hero__icon {
+        font-size: 2.5rem; /* 40px */
+    }
+}
+
+/* Desktop (1024px - 1279px) - refinamientos */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .hero {
+        min-height: 550px;
+    }
+    
+    .hero__title {
+        font-size: 3.5rem; /* 56px */
+    }
+    
+    .hero__subtitle {
+        font-size: 1.25rem; /* 20px */
+    }
+}
+
+/* Pantallas grandes (1280px+) */
+@media (min-width: 1280px) {
+    .hero {
+        min-height: 650px;
+    }
+}
+
+/* Ajustes de orientación para landscape en móvil */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero__container {
+        gap: var(--spacing-lg);
+    }
+    
+    .hero__title {
+        font-size: 2rem; /* 32px */
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .hero__subtitle {
+        font-size: var(--font-size-sm); /* 14px */
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hero__subtitle::after {
+        margin-top: var(--spacing-sm);
+    }
+    
+    .hero__actions {
+        flex-direction: row;
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-sm);
+    }
+    
+    .hero__icon {
+        font-size: 2rem; /* 32px */
+    }
+}
+
+/* Ajustes para dispositivos con pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero__icon {
+        border-width: 0.5px;
+    }
+}
+
+/* Preferencia de movimiento reducido (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+    .hero__icon,
+    .btn,
+    .hero__visual::before,
+    .hero__visual::after {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    .hero__icon:hover {
+        transform: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* Ajustes de impresión */
+@media print {
+    .hero {
+        background: white;
+        color: black;
+        padding: 1cm 0;
+        min-height: auto;
+    }
+    
+    .hero__visual,
+    .hero__subtitle::after,
+    .hero::before {
+        display: none !important;
+    }
+    
+    .btn {
+        border: 1px solid black;
+        background: white;
+        color: black;
+        box-shadow: none;
+    }
+}
+
+/* TOQUES FINALES - Mejoras de espaciado y detalles */
+
+/* Ajuste de espaciado general para mejor jerarquía visual */
+.hero__content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Mejor contraste para el texto en hover de botones */
+.btn--primary:hover {
+    color: var(--color-text-dark);
+    text-decoration: none;
+}
+
+/* Sutil efecto de brillo en los bordes de los iconos */
+.hero__icon {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+}
+
+.hero__icon:hover::before {
+    opacity: 1;
+}
+
+/* Mejora en la legibilidad del subtítulo */
+.hero__subtitle {
+    text-rendering: optimizeLegibility;
+}
+
+/* Ajuste para que los botones no se vean apretados en móvil muy pequeño */
+@media (max-width: 360px) {
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: var(--font-size-xs);
+    }
+    
+    .hero__title {
+        font-size: 1.75rem; /* 28px */
+    }
+}
+
+/* Efecto de gradiente en el título para darle más dinamismo (opcional) */
+.hero__title {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Si usamos el gradiente, ajustamos el color del span/strong */
+.hero__title span,
+.hero__title strong {
+    background: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Línea decorativa alternativa para el subtítulo (versión más sutil) */
+.hero__subtitle::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-accent);
+    margin-top: var(--spacing-lg);
+    border-radius: var(--border-radius-full);
+    opacity: 0.7;
+}
