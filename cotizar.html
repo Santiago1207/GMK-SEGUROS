@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GMK Seguros – Cotizar tu seguro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/cotizador.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+    <!-- HEADER (idéntico a Fase 1, activo en Inicio) -->
+    <header class="header" role="banner">
+
+        <div class="header__top">
+            <div class="container">
+                <p class="header__contact">
+                    <span aria-hidden="true">📞</span>
+                    <a href="tel:+573142772874" class="header__phone">(601) 000-0000</a>
+                    <span class="header__schedule">Lun-Vie: 8am-6pm</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="header__main">
+            <div class="container header__container">
+                <a href="index.html" class="logo" aria-label="GMK SEGUROS - Inicio">
+                    <img src="images/logo.svg" alt="GMK SEGUROS Logo" class="logo__img" width="180" height="50">
+                </a>
+
+                <nav class="nav" role="navigation" aria-label="Navegación principal">
+                    <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu"
+                        type="button">
+                        <span class="nav__hamburger" aria-hidden="true"></span>
+                    </button>
+
+                    <ul class="nav__menu" id="nav-menu" role="menubar">
+                        <li class="nav__item" role="none">
+                            <a href="index.html" class="nav__lin " role="menuitem" aria-current="page">Inicio</a>
+                        </li>
+                        <li class="nav__item" role="none">
+                            <a href="nosotros.html" class="nav__link" role="menuitem">Nosotros</a>
+                        </li>
+                        <li class="nav__item nav__item--dropdown" role="none">
+                            <a href="seguros.html" class="nav__link" role="menuitem" aria-haspopup="true">Seguros</a>
+                            <ul class="nav__submenu" role="menu" aria-label="Tipos de seguros">
+                                <li role="none"><a href="seguros-auto.html" class="nav__sublink"
+                                        role="menuitem">Autos</a></li>
+                                <li role="none"><a href="seguros-hogar.html" class="nav__sublink"
+                                        role="menuitem">Hogar</a></li>
+                                <li role="none"><a href="seguros-vida.html" class="nav__sublink"
+                                        role="menuitem">Vida</a></li>
+                                <li role="none"><a href="seguros-salud.html" class="nav__sublink"
+                                        role="menuitem">Salud</a></li>
+                                <li role="none"><a href="seguros-empresas.html" class="nav__sublink"
+                                        role="menuitem">Empresas</a></li>
+                                <li role="none"><a href="seguros-moto.html" class="nav__sublink"
+                                        role="menuitem">Motos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item" role="none">
+                            <a href="cotizar.html" class="nav__link nav__link--cta nav__link--active"
+                                role="menuitem">Cotizar</a>
+                        </li>
+                        <li class="nav__item" role="none">
+                            <a href="contacto.html" class="nav__link" role="menuitem">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <a href="https://wa.me/573142772874" class="header__whatsapp" aria-label="WhatsApp" target="_blank"
+                    rel="noopener noreferrer">
+                    <span aria-hidden="true">💬</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN: Contenido específico de INICIO -->
+    <main id="main-content" class="main" role="main">
+        <section id="cotizar">
+
+            <!-- SECTION HEADER -->
+            <header class="section-header">
+                <div class="section-eyebrow">GMK Seguros</div>
+                <h1 class="section-title">Cotiza tu seguro<br /><span>en menos de 1 minuto</span></h1>
+                <p class="section-subtitle">Responde unas preguntas simples y recibe una cotización personalizada con
+                    las mejores aseguradoras.</p>
+            </header>
+
+            <!-- COTIZADOR CARD -->
+            <div class="cotizador-card" id="cotizador">
+
+                <!-- PROGRESS HEADER -->
+                <div class="progress-header">
+                    <span class="progress-label" id="progress-label">Paso 1 de 4</span>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="progress-steps" id="progress-steps">
+                        <div class="step-dot active" data-step="1"></div>
+                        <div class="step-dot" data-step="2"></div>
+                        <div class="step-dot" data-step="3"></div>
+                        <div class="step-dot" data-step="4"></div>
+                    </div>
+                </div>
+
+                <!-- STEP PANELS -->
+                <div class="step-panels" id="step-panels">
+
+                    <!-- STEP 1: TIPO DE SEGURO -->
+                    <div class="step-panel active" id="step-1">
+                        <h2 class="step-title">¿Qué deseas asegurar?</h2>
+                        <p class="step-desc">Elige una opción para comenzar.</p>
+                        <div class="insurance-grid">
+
+                            <div class="insurance-card" data-value="auto" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">🚗</div>
+                                <div class="insurance-name">Seguro de Auto</div>
+                            </div>
+
+                            <div class="insurance-card" data-value="moto" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">🏍️</div>
+                                <div class="insurance-name">Seguro de Moto</div>
+                            </div>
+
+                            <div class="insurance-card" data-value="hogar" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">🏠</div>
+                                <div class="insurance-name">Seguro de Hogar</div>
+                            </div>
+
+                            <div class="insurance-card" data-value="vida" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">❤️</div>
+                                <div class="insurance-name">Seguro de Vida</div>
+                            </div>
+
+                            <div class="insurance-card" data-value="salud" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">🏥</div>
+                                <div class="insurance-name">Seguro de Salud</div>
+                            </div>
+
+                            <div class="insurance-card" data-value="empresarial" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">🏢</div>
+                                <div class="insurance-name">Seguro Empresarial</div>
+                            </div>
+
+                            <div class="insurance-card" data-value="otro" onclick="selectInsurance(this)">
+                                <div class="check-badge"><svg viewBox="0 0 12 10">
+                                        <polyline points="1,5 4.5,8.5 11,1" stroke="white" stroke-width="2" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg></div>
+                                <div class="insurance-icon">🔒</div>
+                                <div class="insurance-name">Otro</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: PREGUNTAS DINÁMICAS -->
+                    <div class="step-panel" id="step-2">
+                        <h2 class="step-title" id="step2-title">Cuéntanos un poco más</h2>
+                        <p class="step-desc">Unas preguntas rápidas para personalizar tu cotización.</p>
+                        <div class="questions-wrap" id="questions-container"></div>
+                    </div>
+
+                    <!-- STEP 3: ASESORÍA -->
+                    <div class="step-panel" id="step-3">
+                        <div class="advisory-wrap">
+                            <div class="advisory-icon-ring">🛡️</div>
+                            <p class="advisory-message">Analizaremos tu caso y compararemos <em>varias aseguradoras</em>
+                                para ayudarte a encontrar la mejor opción de protección.</p>
+                            <p class="advisory-sub">En GMK Seguros trabajamos con las principales compañías del mercado.
+                                Nuestra asesoría es personalizada, sin costo y sin compromiso.</p>
+                            <div class="advisory-badges">
+                                <div class="advisory-badge"><span>🤝</span> Asesoría sin costo</div>
+                                <div class="advisory-badge"><span>⚡</span> Respuesta en 24h</div>
+                                <div class="advisory-badge"><span>🏆</span> +15 aseguradoras</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: DATOS DE CONTACTO -->
+                    <div class="step-panel" id="step-4">
+                        <h2 class="step-title">¿A dónde enviamos tu cotización?</h2>
+                        <p class="step-desc">Déjanos tus datos y un asesor te contactará pronto.</p>
+                        <div class="form-grid">
+                            <div class="f-group full">
+                                <label class="f-label" for="f-nombre">Nombre completo</label>
+                                <input class="f-input" type="text" id="f-nombre" placeholder="Ej: María García"
+                                    autocomplete="name" />
+                            </div>
+                            <div class="f-group">
+                                <label class="f-label" for="f-telefono">Teléfono / WhatsApp</label>
+                                <input class="f-input" type="tel" id="f-telefono" placeholder="Ej: 312 000 0000"
+                                    autocomplete="tel" />
+                            </div>
+                            <div class="f-group">
+                                <label class="f-label" for="f-email">Correo electrónico</label>
+                                <input class="f-input" type="email" id="f-email" placeholder="Ej: maria@email.com"
+                                    autocomplete="email" />
+                            </div>
+                            <div class="f-group full">
+                                <label class="f-label" for="f-comentario">Comentario (opcional)</label>
+                                <textarea class="f-textarea" id="f-comentario"
+                                    placeholder="¿Algo más que debamos saber para tu cotización?"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-ctas">
+                            <button class="btn-primary" onclick="submitForm()">Recibir mi cotización</button>
+                            <button class="btn-whatsapp" onclick="openWhatsApp()">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                                Cotizar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+
+                </div><!-- /step-panels -->
+
+                <!-- NAV FOOTER -->
+                <div class="nav-footer" id="nav-footer">
+                    <button class="btn-back" id="btn-back" onclick="prevStep()" disabled>
+                        ← Atrás
+                    </button>
+                    <button class="btn-next" id="btn-next" onclick="nextStep()" disabled>
+                        Continuar →
+                    </button>
+                </div>
+
+            </div><!-- /cotizador-card -->
+
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+
+        <div class="container">
+
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="assets/logo-gmk-white.svg" alt="GMK SEGUROS" class="footer__logo" width="150" height="40">
+                    <p class="footer__description">Protegemos lo que más valoras. Asesoría especializada en seguros para
+                        familias y empresas en Bogotá.</p>
+                    <div class="footer__social" role="list" aria-label="Redes sociales">
+                        <a href="#" class="footer__social-link" aria-label="Facebook" role="listitem">FB</a>
+                        <a href="#" class="footer__social-link" aria-label="LinkedIn" role="listitem">LI</a>
+                        <a href="#" class="footer__social-link" aria-label="Instagram" role="listitem">IG</a>
+                    </div>
+                </div>
+
+                <nav class="footer__nav" aria-label="Seguros">
+                    <h3 class="footer__title">Nuestros Seguros</h3>
+                    <ul class="footer__list">
+                        <li><a href="seguros-auto.html" class="footer__link">Seguro de Autos</a></li>
+                        <li><a href="seguros-hogar.html" class="footer__link">Seguro de Hogar</a></li>
+                        <li><a href="seguros-vida.html" class="footer__link">Seguro de Vida</a></li>
+                        <li><a href="seguros-salud.html" class="footer__link">Seguro de Salud</a></li>
+                        <li><a href="seguros-empresas.html" class="footer__link">Seguros Empresariales</a></li>
+                        <li><a href="seguros-moto.html" class="footer__link">Seguro de Motos</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="footer__nav" aria-label="Empresa">
+                    <h3 class="footer__title">GMK SEGUROS</h3>
+                    <ul class="footer__list">
+                        <li><a href="nosotros.html" class="footer__link">Quiénes Somos</a></li>
+                        <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+                        <li><a href="#" class="footer__link">Preguntas Frecuentes</a></li>
+                    </ul>
+                </nav>
+
+                <div class="footer__contact">
+                    <h3 class="footer__title">Contáctenos</h3>
+                    <address class="footer__address">
+                        <p>Calle 00 # 00-00</p>
+                        <p>Bogotá, Colombia</p>
+                        <p><a href="tel:+5710000000" class="footer__link">(601) 000-0000</a></p>
+                        <p><a href="mailto:info@gmkseguros.com" class="footer__link">info@gmkseguros.com</a></p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="footer__legal">
+                <p class="footer__copyright">&copy; 2026 GMK SEGUROS. Todos los derechos reservados.</p>
+                <div class="footer__legal-links">
+                    <a href="#" class="footer__link footer__link--small">Política de Privacidad</a>
+                    <a href="#" class="footer__link footer__link--small">Términos de Uso</a>
+                    <span class="footer__registro">Registro ante la Superintendencia Financiera de Colombia</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/cotizador.js"></script>
+
+</body>
+
+</html>
