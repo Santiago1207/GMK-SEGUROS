@@ -1582,3 +1582,124 @@
     outline-offset: 2px;
     background: rgba(255, 179, 0, 0.4);
 }
+
+/* =============================================
+   SECCIÓN CERTIFICACIONES
+   Paso 1 — Sección base
+   ============================================= */
+
+.certificaciones {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-3xl) 0;
+}
+
+/* Paso 2 — Encabezado */
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.section-title {
+    color: var(--color-primary);
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-extrabold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent);
+    border-radius: var(--border-radius-full);
+    margin: var(--spacing-sm) auto 0;
+}
+
+.section-subtitle {
+    color: var(--color-text-medium);
+    font-size: var(--font-size-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Paso 3 — Grid de certificaciones */
+
+.certificaciones__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .certificaciones__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .certificaciones__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Paso 4 — Tarjetas */
+
+.cert-item {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--box-shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    border-top: 4px solid transparent;
+}
+
+.cert-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--box-shadow-lg);
+    border-top-color: var(--color-primary);
+}
+
+.cert-item__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.cert-item__title {
+    font-family: var(--font-family-titles);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cert-item__desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-medium);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Paso 5 — Media queries */
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .certificaciones__aliadas {
+        gap: var(--spacing-2xl);
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: var(--font-size-4xl);
+    }
+
+    .certificaciones__logos {
+        margin-top: var(--spacing-3xl);
+    }
+}
