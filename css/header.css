@@ -536,7 +536,6 @@
         background-color: transparent;
     }
 }
-
 /* ============================================================================
    PASO 9: DROPDOWN MOBILE - SUBMENÚ DE SEGUROS
    ============================================================================ */
@@ -651,7 +650,6 @@
         right: 0.5rem;
     }
 }
-
 /* ============================================================================
    PASO 10: CTA COTIZAR DESTACADO EN MOBILE
    ============================================================================ */
@@ -860,7 +858,7 @@
 }
 
 /* ============================================================================
-   PASO 12: DROPDOWN DESKTOP - ESTRUCTURA Y POSICIONAMIENTO
+   PASO 12.1: DROPDOWN DESKTOP - ESTRUCTURA Y POSICIONAMIENTO BASE
    ============================================================================ */
 
 /**
@@ -887,13 +885,14 @@
     
     /**
      * Flecha indicadora para dropdown (solo desktop)
+     * Ajustada para mejor alineación visual
      */
     .nav__item--dropdown > .nav__link::after {
         content: '';
         position: absolute;
         right: 0.75rem;
         top: 50%;
-        transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-70%) rotate(45deg);
         width: 0.5rem;
         height: 0.5rem;
         border-right: 2px solid currentColor;
@@ -904,13 +903,18 @@
     
     /**
      * La flecha rota cuando el dropdown está abierto (hover o focus)
-     * Nota: Requiere manejo con JS o CSS :hover en el item
      */
     .nav__item--dropdown:hover > .nav__link::after,
     .nav__item--dropdown:focus-within > .nav__link::after {
-        transform: translateY(-50%) rotate(-135deg);
+        transform: translateY(-30%) rotate(-135deg);
     }
-    
+}
+
+/* ============================================================================
+   PASO 12.2: DROPDOWN DESKTOP - SUBMENÚ Y MICRO-INTERACCIONES
+   ============================================================================ */
+
+@media (min-width: 1024px) {
     /**
      * Submenú en desktop
      * Inicialmente oculto, aparece en hover/focus
@@ -951,7 +955,7 @@
     }
     
     /**
-     * Flecha decorativa del submenú (opcional)
+     * Flecha decorativa del submenú (triángulo que apunta hacia arriba)
      */
     .nav__submenu::before {
         content: '';
@@ -998,13 +1002,29 @@
     .nav__sublink:last-child {
         border-bottom: none;
     }
+    
+    /**
+     * Retardo en transición para evitar cierres abruptos
+     */
+    .nav__item--dropdown {
+        transition: 0.25s;
+    }
+    
+    .nav__item--dropdown .nav__submenu {
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+        transition-delay: 0.1s;
+    }
+    
+    .nav__item--dropdown:hover .nav__submenu,
+    .nav__item--dropdown:focus-within .nav__submenu {
+        transition-delay: 0s;
+    }
 }
 
 /**
  * Soporte para dispositivos táctiles en desktop
  * En tablets grandes que usen el breakpoint pero sean táctiles,
  * el dropdown se abre con click (requiere JS)
- * Este estilo asegura que el submenú sea utilizable
  */
 @media (min-width: 1024px) and (hover: none) and (pointer: coarse) {
     .nav__submenu {

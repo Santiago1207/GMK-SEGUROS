@@ -1732,15 +1732,6 @@
     overflow: hidden; /* Para que la imagen no se salga si no queremos */
 }
 
-/* Ajuste Responsivo para el Layout */
-@media (max-width: var(--breakpoint-tablet)) {
-    .cta-final__content {
-        grid-template-columns: 1fr; /* Una sola columna en tablet/móvil */
-        text-align: center;
-        margin: 0 var(--spacing-md);
-    }
-}
-
 .cta-final__info {
     padding: var(--spacing-3xl) var(--spacing-2xl);
 }
@@ -1748,21 +1739,11 @@
 .cta-final__visual {
     position: relative;
     height: 100%;
-    background: var(--color-background-light); /* Fondo suave para el área del asesor */
+    background: var(--color-background-light);
     display: flex;
-    align-items: flex-end; /* La foto del asesor suele ir apoyada abajo */
+    align-items: center; /* CAMBIO: de flex-end a center */
     justify-content: center;
-}
-
-@media (max-width: var(--breakpoint-tablet)) {
-    .cta-final__info {
-        padding: var(--spacing-xl) var(--spacing-md);
-    }
-    
-    .cta-final__visual {
-        height: 300px; /* Altura fija para la imagen en móvil */
-        order: -1; /* Opcional: poner la imagen arriba en móvil */
-    }
+    overflow: hidden; /* NUEVO: evita que la imagen se desborde */
 }
 
 /* =============================================
@@ -1807,13 +1788,6 @@
     flex-shrink: 0;
 }
 
-/* Ajuste de alineación para la lista en móvil */
-@media (max-width: var(--breakpoint-tablet)) {
-    .cta-final__benefits {
-        align-items: center; /* Centra los beneficios si el texto general está centrado */
-    }
-}
-
 /* =============================================
    PASO 3: BOTONES Y MICRO-INTERACCIONES
    ============================================= */
@@ -1823,12 +1797,6 @@
     gap: var(--spacing-md);
     justify-content: flex-start; /* Alineado a la izquierda en desktop */
     flex-wrap: wrap;
-}
-
-@media (max-width: var(--breakpoint-tablet)) {
-    .cta-final__buttons {
-        justify-content: center; /* Centrado en móviles */
-    }
 }
 
 /* --- BOTÓN PRINCIPAL (CON EFECTO SHINE) --- */
@@ -1904,18 +1872,18 @@
 .cta-final__image-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100%; /* NUEVO: ocupar todo el alto */
     display: flex;
-    align-items: flex-end;
+    align-items: center; /* CAMBIO: de flex-end a center */
     justify-content: center;
-    padding-top: var(--spacing-xl);
+    padding-top: 0; /* CAMBIO: eliminar padding superior */
 }
 
 .cta-final__image {
-    max-width: 90%;
-    height: auto;
-    object-fit: contain;
-    /* Filtro sutil para que la imagen se vea más integrada */
+    width: 100%; /* CAMBIO: de max-width a width */
+    height: 100%; /* NUEVO: ocupar todo el contenedor */
+    object-fit: cover; /* NUEVO: cubre todo el espacio manteniendo proporción */
+    object-position: center top; /* NUEVO: centra horizontal, arriba vertical */
     filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
     z-index: 1;
 }
@@ -1923,9 +1891,11 @@
 /* --- BADGE DE EXPERIENCIA --- */
 .cta-final__badge {
     position: absolute;
-    top: 15%;
-    right: 10%;
-    background: var(--color-accent); /* Dorado para que destaque */
+    bottom: 10%;        /* CAMBIO: de top a bottom */
+    left: 5%;           /* CAMBIO: de right a left */
+    right: auto;        /* NUEVO: quitar right */
+    top: auto;          /* NUEVO: quitar top */
+    background: var(--color-accent);
     padding: var(--spacing-sm) var(--spacing-md);
     border-radius: var(--border-radius-md);
     box-shadow: 0 10px 25px rgba(255, 179, 0, 0.4);
@@ -1933,7 +1903,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    animation: floating 3s ease-in-out infinite; /* Animación de flotado suave */
+    animation: floating 3s ease-in-out infinite;
 }
 
 .cta-final__badge-number {
@@ -1957,14 +1927,6 @@
     0% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
-}
-
-@media (max-width: var(--breakpoint-tablet)) {
-    .cta-final__badge {
-        top: 10%;
-        right: 20%;
-        padding: var(--spacing-xs) var(--spacing-sm);
-    }
 }
 
 /* =============================================
@@ -2014,5 +1976,43 @@
     }
     .cta-final__badge, .cta-final__visual {
         display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-final__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin: 0 var(--spacing-md);
+    }
+    
+    .cta-final__info {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .cta-final__visual {
+        height: 300px;
+        order: -1;
+    }
+    
+    .cta-final__benefits {
+        align-items: center;
+    }
+    
+    .cta-final__buttons {
+        justify-content: center;
+    }
+    
+    .cta-final__badge {
+        bottom: 5%;
+        left: 5%;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        justify-content: center;
     }
 }

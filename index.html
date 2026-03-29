@@ -30,21 +30,22 @@
 </head>
 
 <body>
-    <!-- HEADER -->
+    <!-- HEADER (activo en "Contacto") -->
     <header class="header" role="banner">
         <div class="header__top">
             <div class="container">
                 <p class="header__contact">
                     <span aria-hidden="true">📞</span>
-                    <a href="tel:+573142772874" class="header__phone">(601) 000-0000</a>
+                    <a href="tel:+5710000000" class="header__phone">(601) 000-0000</a>
                     <span class="header__schedule">Lun-Vie: 8am-6pm</span>
                 </p>
             </div>
         </div>
+
         <div class="header__main">
             <div class="container header__container">
-                <a href="index.html" class="logo" aria-label="GMK SEGUROS - Inicio">
-                    <img src="images/logo.svg" alt="GMK SEGUROS Logo" class="logo__img" width="180" height="50">
+                <a href="inicio.html" class="logo" aria-label="GMK SEGUROS - Inicio">
+                    <img src="assets/logo-gmk.svg" alt="GMK SEGUROS Logo" class="logo__img" width="180" height="50">
                 </a>
 
                 <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -55,41 +56,27 @@
 
                     <ul class="nav__menu" id="nav-menu" role="menubar">
                         <li class="nav__item" role="none">
-                            <a href="index.html" class="nav__link nav__link--active" role="menuitem"
-                                aria-current="page">Inicio</a>
+                            <a href="index.html" class="nav__link nav__link--active" role="menuitem">Inicio</a>
                         </li>
                         <li class="nav__item" role="none">
                             <a href="nosotros.html" class="nav__link" role="menuitem">Nosotros</a>
                         </li>
-                        <li class="nav__item nav__item--dropdown" role="none">
+                        <li class="nav__item" role="none">
                             <a href="seguros.html" class="nav__link" role="menuitem" aria-haspopup="true">Seguros</a>
-                            <ul class="nav__submenu" role="menu" aria-label="Tipos de seguros">
-                                <li role="none"><a href="seguros-auto.html" class="nav__sublink"
-                                        role="menuitem">Autos</a></li>
-                                <li role="none"><a href="seguros-hogar.html" class="nav__sublink"
-                                        role="menuitem">Hogar</a></li>
-                                <li role="none"><a href="seguros-vida.html" class="nav__sublink"
-                                        role="menuitem">Vida</a></li>
-                                <li role="none"><a href="seguros-salud.html" class="nav__sublink"
-                                        role="menuitem">Salud</a></li>
-                                <li role="none"><a href="seguros-empresas.html" class="nav__sublink"
-                                        role="menuitem">Empresas</a></li>
-                                <li role="none"><a href="seguros-moto.html" class="nav__sublink"
-                                        role="menuitem">Motos</a></li>
-                            </ul>
                         </li>
                         <li class="nav__item" role="none">
                             <a href="cotizar.html" class="nav__link nav__link--cta" role="menuitem">Cotizar</a>
                         </li>
                         <li class="nav__item" role="none">
-                            <a href="contacto.html" class="nav__link" role="menuitem">Contacto</a>
+                            <a href="contacto.html" class="nav__link" role="menuitem"
+                                aria-current="page">Contacto</a>
                         </li>
                     </ul>
                 </nav>
 
                 <a href="https://wa.me/573142772874" class="header__whatsapp" aria-label="WhatsApp" target="_blank"
                     rel="noopener noreferrer">
-                    <span aria-hidden="true">💬</span>
+                    <img src="images/whatsapp.png" alt="WhatsApp Logo" width="50" height="50">
                 </a>
             </div>
         </div>
@@ -97,15 +84,15 @@
 
     <!-- MAIN: Contenido específico de INICIO -->
     <main id="main-content" class="main" role="main">
+        <!-- SECCIÓN Carrusel Fotos: Grid de 6 tipos -->
         <section class="hero-carousel" aria-label="Promociones destacadas">
             <div class="hero-carousel__container">
                 <!-- Slides del carrusel -->
                 <div class="hero-carousel__slides">
-
                     <!-- Slide 1 -->
                     <article class="hero-carousel__slide is-active">
                         <div class="hero-carousel__image-wrapper">
-                            <img src="images/seguro1.png" alt="Auto flamante en carretera - Promoción Seguro Auto"
+                            <img src="images/seguro-autos.webp" alt="Auto flamante en carretera - Promoción Seguro Auto"
                                 class="hero-carousel__image" loading="eager">
                         </div>
                         <div class="hero-carousel__content">
@@ -122,7 +109,7 @@
                     <!-- Slide 2 -->
                     <article class="hero-carousel__slide">
                         <div class="hero-carousel__image-wrapper">
-                            <img src="images/SEGURO DE HOGAR DRIVE.png"
+                            <img src="images/seguro-hogar.webp"
                                 alt="Familia feliz en casa - Promoción Seguro Hogar" class="hero-carousel__image"
                                 loading="lazy">
                         </div>
@@ -140,7 +127,7 @@
                     <!-- Slide 3 -->
                     <article class="hero-carousel__slide">
                         <div class="hero-carousel__image-wrapper">
-                            <img src="assets/images/promos/salud-familiar.webp"
+                            <img src="/images/seguro-salud.webp"
                                 alt="Consultorio médico moderno - Promoción Seguro Salud" class="hero-carousel__image"
                                 loading="lazy">
                         </div>
@@ -158,7 +145,7 @@
                     <!-- Slide 4 -->
                     <article class="hero-carousel__slide">
                         <div class="hero-carousel__image-wrapper">
-                            <img src="assets/images/promos/vida-tranquila.webp"
+                            <img src="/images/seguro-vida.webp"
                                 alt="Persona mayor disfrutando - Promoción Seguro Vida" class="hero-carousel__image"
                                 loading="lazy">
                         </div>
@@ -172,7 +159,6 @@
                             </div>
                         </div>
                     </article>
-
                 </div>
 
                 <!-- Controles del carrusel -->
