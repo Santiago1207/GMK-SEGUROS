@@ -17,19 +17,6 @@
     padding: 0 var(--container-padding);
 }
 
-/* Efecto de fondo sutil (opcional, podemos ajustarlo después) */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 100% 0%, var(--color-primary-lighter) 0%, transparent 50%);
-    opacity: 0.3;
-    pointer-events: none;
-}
-
 /* Ajustes específicos para móvil */
 @media (max-width: 767px) {
     .hero {
@@ -66,14 +53,6 @@
     display: none; /* Oculto en móvil inicialmente */
 }
 
-.hero__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-    max-width: 400px;
-    margin: 0 auto;
-}
-
 /* Tablet */
 @media (min-width: 768px) {
     .hero__container {
@@ -89,11 +68,6 @@
     .hero__visual {
         display: block;
         position: relative;
-    }
-    
-    .hero__grid {
-        max-width: 100%;
-        margin: 0;
     }
 }
 
@@ -356,165 +330,32 @@
 }
 
 /* ---------------------------------------------
-   HERO SECTION - PASO 6: ELEMENTO VISUAL (ICONOS)
+   HERO SECTION - PASO 6: ELEMENTO VISUAL (IMAGEN)
    --------------------------------------------- */
 .hero__visual {
     position: relative;
     display: none; /* Se activa en desktop desde paso 2 */
 }
 
-.hero__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-lg);
-    position: relative;
-    z-index: 2;
-}
-
-.hero__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Estilos para la imagen */
+.hero__image {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-background-light) 100%);
-    border-radius: var(--border-radius-lg);
-    font-size: 3rem; /* 48px */
-    box-shadow: var(--box-shadow-md);
-    transition: all var(--transition-base);
-    position: relative;
-    border: 1px solid rgba(74, 20, 140, 0.1); /* #4A148C con opacidad */
-}
-
-/* Efecto hover en los iconos */
-.hero__icon:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--box-shadow-lg);
-    border-color: var(--color-primary-lighter);
-}
-
-/* Colores específicos para cada icono (opcional - para dar variedad) */
-.hero__icon:nth-child(1) { /* 🛡️ Escudo */
-    background: linear-gradient(135deg, #FFFFFF 0%, #E8EAF6 100%);
-}
-.hero__icon:nth-child(2) { /* ⚡ Rayo */
-    background: linear-gradient(135deg, #FFFFFF 0%, #FFF8E1 100%);
-}
-.hero__icon:nth-child(3) { /* 🏠 Casa */
-    background: linear-gradient(135deg, #FFFFFF 0%, #E0F2F1 100%);
-}
-.hero__icon:nth-child(4) { /* ❤️ Corazón */
-    background: linear-gradient(135deg, #FFFFFF 0%, #FCE4EC 100%);
-}
-
-/* Efecto de brillo sutil en la esquina */
-.hero__icon::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
-    border-radius: var(--border-radius-lg);
-    pointer-events: none;
-    opacity: 0.5;
-}
-
-/* Elementos decorativos de fondo */
-.hero__visual::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, var(--color-primary-lighter) 0%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.4;
-    z-index: 1;
-    animation: float 8s ease-in-out infinite;
-}
-
-.hero__visual::after {
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    left: -30px;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.15;
-    z-index: 1;
-    animation: float 12s ease-in-out infinite reverse;
-}
-
-/* Animación de flotación */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-20px) scale(1.05);
-    }
+    height: auto;
+    display: block;
 }
 
 /* Ajustes específicos para tablet/desktop */
 @media (min-width: 768px) {
-    .hero__grid {
-        gap: var(--spacing-xl);
-    }
-    
-    .hero__icon {
-        font-size: 3.5rem; /* 56px */
-        box-shadow: var(--box-shadow-lg);
+    .hero__visual {
+        display: block;
     }
 }
 
-@media (min-width: 1024px) {
-    .hero__icon {
-        font-size: 4rem; /* 64px */
-    }
-    
-    .hero__visual::before {
-        width: 250px;
-        height: 250px;
-        top: -30px;
-        right: -30px;
-    }
-    
-    .hero__visual::after {
-        width: 300px;
-        height: 300px;
-        bottom: -40px;
-        left: -40px;
-    }
+.hero__image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
-
-/* Efecto de pulso sutil en los iconos al cargar la página (opcional) */
-@keyframes subtlePulse {
-    0% {
-        box-shadow: var(--box-shadow-md);
-    }
-    50% {
-        box-shadow: 0 15px 30px rgba(74, 20, 140, 0.15);
-    }
-    100% {
-        box-shadow: var(--box-shadow-md);
-    }
-}
-
-.hero__icon {
-    animation: subtlePulse 4s ease-in-out infinite;
-    animation-delay: calc(var(--i, 0) * 0.2s);
-}
-
-/* Asignamos delays diferentes a cada icono */
-.hero__icon:nth-child(1) { --i: 1; }
-.hero__icon:nth-child(2) { --i: 2; }
-.hero__icon:nth-child(3) { --i: 3; }
-.hero__icon:nth-child(4) { --i: 4; }
 
 /* ---------------------------------------------
    HERO SECTION - PASO 7: MEDIA QUERIES Y AJUSTES FINALES
@@ -574,14 +415,6 @@
         font-size: 1.125rem; /* 18px */
         max-width: 100%;
     }
-    
-    .hero__grid {
-        gap: var(--spacing-md);
-    }
-    
-    .hero__icon {
-        font-size: 2.5rem; /* 40px */
-    }
 }
 
 /* Desktop (1024px - 1279px) - refinamientos */
@@ -639,32 +472,13 @@
         padding: var(--spacing-sm) var(--spacing-md);
         font-size: var(--font-size-sm);
     }
-    
-    .hero__icon {
-        font-size: 2rem; /* 32px */
-    }
-}
-
-/* Ajustes para dispositivos con pantallas de alta densidad */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .hero__icon {
-        border-width: 0.5px;
-    }
 }
 
 /* Preferencia de movimiento reducido (accesibilidad) */
 @media (prefers-reduced-motion: reduce) {
-    .hero__icon,
-    .btn,
-    .hero__visual::before,
-    .hero__visual::after {
-        animation: none !important;
+    .btn {
         transition: none !important;
         transform: none !important;
-    }
-    
-    .hero__icon:hover {
-        transform: none;
     }
     
     .btn:hover {
@@ -708,29 +522,6 @@
     text-decoration: none;
 }
 
-/* Sutil efecto de brillo en los bordes de los iconos */
-.hero__icon {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero__icon::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    pointer-events: none;
-}
-
-.hero__icon:hover::before {
-    opacity: 1;
-}
-
 /* Mejora en la legibilidad del subtítulo */
 .hero__subtitle {
     text-rendering: optimizeLegibility;
@@ -748,23 +539,7 @@
     }
 }
 
-/* Efecto de gradiente en el título para darle más dinamismo (opcional) */
-.hero__title {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Si usamos el gradiente, ajustamos el color del span/strong */
-.hero__title span,
-.hero__title strong {
-    background: inherit;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Línea decorativa alternativa para el subtítulo (versión más sutil) */
+/* Línea decorativa para el subtítulo */
 .hero__subtitle::after {
     content: '';
     display: block;

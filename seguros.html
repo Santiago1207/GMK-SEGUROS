@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <!-- HEADER (activo en "Contacto") -->
+    <!-- HEADER (activo en "Seguros") -->
     <header class="header" role="banner">
         <div class="header__top">
             <div class="container">
@@ -61,20 +61,34 @@
                         <li class="nav__item" role="none">
                             <a href="nosotros.html" class="nav__link" role="menuitem">Nosotros</a>
                         </li>
-                        <li class="nav__item nav__item--dropdown" role="none">
+                        <li class="nav__item" role="none">
                             <a href="seguros.html" class="nav__link nav__link--active" role="menuitem">Seguros</a>
+                        </li>
+                        <li class="nav__item nav__item--dropdown" role="none">
+                            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true"
+                                aria-expanded="false">Ecosistema GMK</a>
+                            <ul class="nav__submenu" role="menu">
+                                <li role="none">
+                                    <a href="gmk-bambini.html" class="nav__sublink" role="menuitem">GMK Bambini</a>
+                                </li>
+                                <li role="none">
+                                    <a href="gmk-markt.html" class="nav__sublink" role="menuitem">GMK Markt</a>
+                                </li>
+                                <li role="none">
+                                    <a href="gmk-pro.html" class="nav__sublink" role="menuitem">GMK Pro</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav__item" role="none">
                             <a href="cotizar.html" class="nav__link nav__link--cta" role="menuitem">Cotizar</a>
                         </li>
                         <li class="nav__item" role="none">
-                            <a href="contacto.html" class="nav__link" role="menuitem"
-                                aria-current="page">Contacto</a>
+                            <a href="contacto.html" class="nav__link" role="menuitem" aria-current="page">Contacto</a>
                         </li>
                     </ul>
                 </nav>
 
-                <a href="https://wa.me/573142772874" class="header__whatsapp" aria-label="WhatsApp" target="_blank"
+                <a href="https://wa.me/573142772874 " class="header__whatsapp" aria-label="WhatsApp" target="_blank"
                     rel="noopener noreferrer">
                     <img src="images/whatsapp.png" alt="WhatsApp Logo" width="50" height="50">
                 </a>
@@ -98,17 +112,12 @@
                     </p>
                     <div class="hero__actions">
                         <a href="cotizar.html" class="btn btn--primary">Cotizar seguro</a>
-                        <a href="https://wa.me/573142772874" class="btn btn--secondary">Hablar con un asesor</a>
+                        <a href="https://wa.me/573142772874 " class="btn btn--secondary">Hablar con un asesor</a>
                     </div>
                 </div>
-                <div class="hero__visual" aria-hidden="true">
-                    <!-- Imagen decorativa o grid de iconos sutiles -->
-                    <div class="hero__grid">
-                        <span class="hero__icon">🛡️</span>
-                        <span class="hero__icon">⚡</span>
-                        <span class="hero__icon">🏠</span>
-                        <span class="hero__icon">❤️</span>
-                    </div>
+                <div class="hero__visual">
+                    <img src="images/roki-seguros-hero.png" alt="Mascota GMK Seguros - Roki, el buho protector"
+                        class="hero__image" />
                 </div>
             </div>
         </section>
@@ -323,12 +332,30 @@
                 <section class="modal-beneficios">
                     <h3>Beneficios y coberturas</h3>
                     <ul>
-                        <li>Acceso a clínicas y hospitales de alta calidad.</li>
-                        <li>Atención con especialistas y consultas prioritarias.</li>
-                        <li>Cobertura para hospitalización, cirugías y tratamientos.</li>
-                        <li>Opciones de cobertura nacional e internacional.</li>
-                        <li>Exámenes diagnósticos y servicios médicos especializados.</li>
-                        <li>Acompañamiento profesional de GMK Seguros para elegir el plan adecuado.</li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Acceso a clínicas y hospitales de alta calidad.</span>
+                        </li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Atención con especialistas y consultas prioritarias.</span>
+                        </li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Cobertura para hospitalización, cirugías y tratamientos.</span>
+                        </li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Opciones de cobertura nacional e internacional.</span>
+                        </li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Exámenes diagnósticos y servicios médicos especializados.</span>
+                        </li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Acompañamiento profesional de GMK Seguros para elegir el plan adecuado.</span>
+                        </li>
                     </ul>
                 </section>
 
@@ -371,12 +398,30 @@
                 <section class="modal-beneficios">
                     <h3>Beneficios y coberturas</h3>
                     <ul>
-                        <li>Organización completa del servicio funerario.</li>
-                        <li>Acompañamiento y orientación para la familia.</li>
-                        <li>Traslado del fallecido dentro del territorio nacional.</li>
-                        <li>Servicios de velación y ceremonia de despedida.</li>
-                        <li>Apoyo en trámites y diligencias posteriores al fallecimiento.</li>
-                        <li>Servicios adicionales como conductor elegido o acompañamiento logístico según el plan.</li>
+                        <li class="modal-beneficios__item">                            
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Organización completa del servicio funerario.</span>
+                        </li>
+                        <li class="modal-beneficios__item">                            
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Acompañamiento y orientación para la familia.</span>
+                        </li>
+                        <li class="modal-beneficios__item">                            
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Traslado del fallecido dentro del territorio nacional.</span>
+                        </li>
+                        <li class="modal-beneficios__item">                            
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Servicios de velación y ceremonia de despedida.</span>
+                        </li>
+                        <li class="modal-beneficios__item">                            
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Apoyo en trámites y diligencias posteriores al fallecimiento.</span>
+                        </li>
+                        <li class="modal-beneficios__item">
+                            <div class="modal-beneficios__icono"><!-- SVG aquí --></div>
+                            <span class="modal-beneficios__texto">Servicios adicionales como conductor elegido o acompañamiento logístico según el plan.</span>
+                        </li>
                     </ul>
                 </section>
 
