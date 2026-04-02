@@ -17,13 +17,12 @@
 </head>
 
 <body>
-    <!-- HEADER (activo en "Contacto") -->
+    <!-- HEADER (activo en "Cotizar") -->
     <header class="header" role="banner">
         <div class="header__top">
             <div class="container">
                 <p class="header__contact">
-                    <span aria-hidden="true">📞</span>
-                    <a href="tel:+5710000000" class="header__phone">(601) 000-0000</a>
+                    <a href="tel:+573142772874" class="header__phone">+57 3142772874</a>
                     <span class="header__schedule">Lun-Vie: 8am-6pm</span>
                 </p>
             </div>
@@ -32,7 +31,7 @@
         <div class="header__main">
             <div class="container header__container">
                 <a href="inicio.html" class="logo" aria-label="GMK SEGUROS - Inicio">
-                    <img src="assets/logo-gmk.svg" alt="GMK SEGUROS Logo" class="logo__img" width="180" height="50">
+                    <img src="images/logo-gmk.svg" alt="GMK SEGUROS Logo" class="logo__img" width="180" height="50">
                 </a>
 
                 <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -49,19 +48,33 @@
                             <a href="nosotros.html" class="nav__link" role="menuitem">Nosotros</a>
                         </li>
                         <li class="nav__item" role="none">
-                            <a href="seguros.html" class="nav__link" role="menuitem" aria-haspopup="true">Seguros</a>
+                            <a href="seguros.html" class="nav__link" role="menuitem">Seguros</a>
+                        </li>
+                        <li class="nav__item nav__item--dropdown" role="none">
+                            <a href="#" class="nav__link" role="menuitem" aria-haspopup="true"
+                                aria-expanded="false">Ecosistema GMK</a>
+                            <ul class="nav__submenu" role="menu">
+                                <li role="none">
+                                    <a href="gmk-bambini.html" class="nav__sublink" role="menuitem">GMK Bambini</a>
+                                </li>
+                                <li role="none">
+                                    <a href="gmk-markt.html" class="nav__sublink" role="menuitem">GMK Markt</a>
+                                </li>
+                                <li role="none">
+                                    <a href="gmk-pro.html" class="nav__sublink" role="menuitem">GMK Pro</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav__item" role="none">
                             <a href="cotizar.html" class="nav__link nav__link--cta nav__link--active" role="menuitem">Cotizar</a>
                         </li>
                         <li class="nav__item" role="none">
-                            <a href="contacto.html" class="nav__link" role="menuitem"
-                                aria-current="page">Contacto</a>
+                            <a href="contacto.html" class="nav__link" role="menuitem" aria-current="page">Contacto</a>
                         </li>
                     </ul>
                 </nav>
 
-                <a href="https://wa.me/573142772874" class="header__whatsapp" aria-label="WhatsApp" target="_blank"
+                <a href="https://wa.me/573142772874 " class="header__whatsapp" aria-label="WhatsApp" target="_blank"
                     rel="noopener noreferrer">
                     <img src="images/whatsapp.png" alt="WhatsApp Logo" width="50" height="50">
                 </a>

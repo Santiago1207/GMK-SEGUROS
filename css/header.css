@@ -640,12 +640,10 @@
  */
 @media (min-width: 1024px) {
     .nav__submenu {
-        /* Se redefinirá en Paso 17 */
-        display: none;
+        /* Controlado por opacity/visibility en Paso 12.2 */
     }
     
     .nav__item--dropdown > .nav__link::after {
-        /* Se redefinirá en desktop */
         top: 50%;
         right: 0.5rem;
     }
